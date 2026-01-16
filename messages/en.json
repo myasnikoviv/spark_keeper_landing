@@ -1,0 +1,310 @@
+{
+    "hero": {
+        "headline": "Your thoughts deserve to live",
+        "subheadline": "Capture anything. AI organizes everything. Never lose what matters.",
+        "cta": "Coming Soon"
+    },
+    "problem": {
+        "title": "Does this sound familiar?",
+        "scenarios": {
+            "travel": {
+                "emoji": "💡",
+                "title": "Lost travel ideas",
+                "description": "You saved that perfect place to visit... but where? Lost in bookmarks, Instagram saves, scattered notes."
+            },
+            "gifts": {
+                "emoji": "🎁",
+                "title": "Forgotten wishes",
+                "description": "Your partner mentioned what they want all year... and you forgot when it mattered."
+            },
+            "movies": {
+                "emoji": "🎬",
+                "title": "Content chaos",
+                "description": "Dozens of movie lists, series recommendations... no idea what you've watched or what's next."
+            },
+            "reading": {
+                "emoji": "📚",
+                "title": "Endless 'someday'",
+                "description": "That book, that article, that idea... always 'later'. But later never comes."
+            },
+            "thoughts": {
+                "emoji": "🧠",
+                "title": "Mental overload",
+                "description": "Too many thoughts. Nothing turns into action. Everything just... disappears."
+            }
+        },
+        "tagline": "Your thoughts are valuable. But they disappear."
+    },
+    "solution": {
+        "title": "The Spark Keeper Way",
+        "tagline": "Capture once. Understand forever. Act when it matters.",
+        "features": {
+            "capture": {
+                "title": "Send anything, anytime",
+                "description": "Text, voice, links, images. Zero friction. Just capture."
+            },
+            "understand": {
+                "title": "AI understands context",
+                "description": "No folders. No tags. AI reads, understands, and structures everything for you."
+            },
+            "connect": {
+                "title": "Ideas find each other",
+                "description": "Sparks connect automatically. Your knowledge becomes a living network."
+            },
+            "act": {
+                "title": "Turn thoughts into actions",
+                "description": "Tasks, reminders, calendar events. AI suggests what to do and when."
+            }
+        },
+        "emphasis": "No folders hell. No manual organization. AI does the thinking work."
+    },
+    "howItWorks": {
+        "title": "How It Works",
+        "steps": {
+            "capture": {
+                "number": "01",
+                "title": "Capture anything instantly",
+                "description": "Voice note while driving. Screenshot of inspiration. Link to save. Just send it."
+            },
+            "process": {
+                "number": "02",
+                "title": "AI creates structured sparks",
+                "description": "Every input becomes a rich, searchable spark with context and meaning."
+            },
+            "connect": {
+                "number": "03",
+                "title": "Ideas connect automatically",
+                "description": "AI finds relationships. Your knowledge graph grows organically."
+            },
+            "action": {
+                "number": "04",
+                "title": "Actions appear when needed",
+                "description": "Reminders, tasks, insights surface at the perfect moment."
+            }
+        }
+    },
+    "useCases": {
+        "title": "Real Life, Real Value",
+        "cases": {
+            "travel": {
+                "emoji": "🎒",
+                "title": "Travel Planning",
+                "problem": "Scattered recommendations across apps",
+                "solution": "One place for all destinations, automatically organized by location"
+            },
+            "gifts": {
+                "emoji": "🎁",
+                "title": "Gift Ideas",
+                "problem": "Forgetting what people mentioned",
+                "solution": "AI remembers and reminds you before birthdays and holidays"
+            },
+            "media": {
+                "emoji": "🎥",
+                "title": "Movies & Series",
+                "problem": "Lost track of what to watch",
+                "solution": "Smart collections that know what you've seen and what's next"
+            },
+            "reading": {
+                "emoji": "📖",
+                "title": "Reading Lists",
+                "problem": "Books and articles pile up unread",
+                "solution": "Prioritized reading queue based on your interests and time"
+            },
+            "work": {
+                "emoji": "💼",
+                "title": "Work Insights",
+                "problem": "Brilliant ideas lost in meetings",
+                "solution": "Capture insights instantly, connect them to projects automatically"
+            },
+            "personal": {
+                "emoji": "🧠",
+                "title": "Personal Growth",
+                "problem": "Reflections scattered, patterns unseen",
+                "solution": "AI helps you see patterns in your thoughts and growth over time"
+            }
+        }
+    },
+    "coach": {
+        "title": "Meet Your AI Companion",
+        "subtitle": "Not just a tool. A thinking partner.",
+        "description": "Spark Keeper's AI Coaches understand context, ask the right questions, and help you think deeper. They're here to make sure nothing important slips away.",
+        "sparky": {
+            "name": "Sparky",
+            "role": "Your Fire Coach",
+            "personality": "Energetic, curious, always ready to help you capture and connect ideas."
+        }
+    },
+    "testimonials": {
+        "title": "Early Users Love It",
+        "items": {
+            "mental": {
+                "quote": "I finally feel in control of my thoughts. Nothing gets lost anymore.",
+                "author": "Early Adopter"
+            },
+            "action": {
+                "quote": "My ideas actually turn into actions now. It's like having a second brain that actually works.",
+                "author": "Beta Tester"
+            },
+            "peace": {
+                "quote": "The mental load is gone. I trust that Spark Keeper remembers everything.",
+                "author": "Power User"
+            }
+        }
+    },
+    "media": {
+        "title": "See It In Action",
+        "subtitle": "Beautiful. Intelligent. Magical."
+    },
+    "cta": {
+        "title": "Your thoughts deserve better",
+        "subtitle": "Join the waitlist for early access",
+        "appStore": "App Store",
+        "googlePlay": "Google Play",
+        "comingSoon": "Coming Soon",
+        "inReview": "App currently in review"
+    },
+    "footer": {
+        "tagline": "Capture once. Understand forever. Act when it matters.",
+        "copyright": "© 2026 Spark Keeper. All rights reserved."
+    },
+    "nav": {
+        "problem": "Problem",
+        "solution": "Solution",
+        "howItWorks": "How It Works",
+        "useCases": "Use Cases"
+    },
+    "story": {
+        "entry": {
+            "whisper": "Before the thought disappears",
+            "subtitle": "A place where nothing is lost"
+        },
+        "fragmented": {
+            "fragments": [
+                "That perfect gift idea... where did it go?",
+                "I had something important to remember",
+                "Saved this somewhere",
+                "Was going to look into that",
+                "Someone recommended...",
+                "Need to plan...",
+                "Forgot to write down",
+                "Lost in notifications"
+            ]
+        },
+        "transformation": {
+            "fragments": [
+                "trip to Iceland",
+                "birthday gift",
+                "that article",
+                "movie recommendation",
+                "book title",
+                "dinner reservation",
+                "project idea",
+                "insight from call"
+            ]
+        },
+        "understanding": {
+            "title": "Spark Keeper",
+            "essence": "Everything you send becomes part of a living, intelligent space that understands you"
+        },
+        "constellation": {
+            "ideas": [
+                {
+                    "text": "Iceland trip",
+                    "x": 15,
+                    "y": 20
+                },
+                {
+                    "text": "Northern lights",
+                    "x": 28,
+                    "y": 35
+                },
+                {
+                    "text": "Winter gear",
+                    "x": 45,
+                    "y": 25
+                },
+                {
+                    "text": "Photography tips",
+                    "x": 65,
+                    "y": 40
+                },
+                {
+                    "text": "Reykjavik hotels",
+                    "x": 52,
+                    "y": 55
+                },
+                {
+                    "text": "Budget planning",
+                    "x": 30,
+                    "y": 60
+                },
+                {
+                    "text": "Flight deals",
+                    "x": 72,
+                    "y": 65
+                },
+                {
+                    "text": "Travel dates",
+                    "x": 18,
+                    "y": 70
+                }
+            ]
+        },
+        "presence": {
+            "whisper": "Something is thinking with you",
+            "qualities": [
+                "Understands context, not just keywords",
+                "Surfaces connections you didn't see",
+                "Learns what matters to you",
+                "Suggests the right moment to act"
+            ]
+        },
+        "memories": {
+            "memories": [
+                {
+                    "text": "Weekend in Kyoto",
+                    "context": "Mentioned during conversation, saved with travel links and restaurant notes"
+                },
+                {
+                    "text": "Mom's birthday — pottery class",
+                    "context": "Casual comment she made months ago, connected to local studios"
+                },
+                {
+                    "text": "That series everyone talks about",
+                    "context": "Three friends recommended, now ready when you are"
+                },
+                {
+                    "text": "Learn Spanish",
+                    "context": "Collected apps, podcasts, and your own progress thoughts"
+                },
+                {
+                    "text": "Sourdough starter tips",
+                    "context": "Recipe, timing notes, and why the last one didn't work"
+                }
+            ]
+        },
+        "voices": {
+            "voices": [
+                {
+                    "quote": "Finally, a place where my scattered thoughts actually make sense. It's like having a conversation with my future self.",
+                    "author": "Elena"
+                },
+                {
+                    "quote": "I've stopped losing brilliant ideas. Everything connects in ways I never expected.",
+                    "author": "Marcus"
+                },
+                {
+                    "quote": "It's not about saving information. It's about understanding yourself better.",
+                    "author": "Sophia"
+                }
+            ]
+        },
+        "resolution": {
+            "essence": "The chaos is gone. Your thoughts have a place. You have clarity."
+        },
+        "cta": {
+            "invitation": "Join the waitlist",
+            "comingSoon": "Available Soon"
+        }
+    }
+}

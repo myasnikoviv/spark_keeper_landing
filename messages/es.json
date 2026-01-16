@@ -1,0 +1,310 @@
+{
+    "hero": {
+        "headline": "Tus pensamientos merecen vivir",
+        "subheadline": "Captura cualquier cosa. La IA organiza todo. Nunca pierdas lo que importa.",
+        "cta": "Próximamente"
+    },
+    "problem": {
+        "title": "¿Te suena familiar?",
+        "scenarios": {
+            "travel": {
+                "emoji": "💡",
+                "title": "Ideas de viaje perdidas",
+                "description": "Guardaste ese lugar perfecto para visitar... ¿pero dónde? Perdido en marcadores, guardados de Instagram, notas dispersas."
+            },
+            "gifts": {
+                "emoji": "🎁",
+                "title": "Deseos olvidados",
+                "description": "Tu pareja mencionó lo que quería todo el año... y lo olvidaste cuando importaba."
+            },
+            "movies": {
+                "emoji": "🎬",
+                "title": "Caos de contenido",
+                "description": "Docenas de listas de películas, recomendaciones de series... sin idea de qué has visto o qué sigue."
+            },
+            "reading": {
+                "emoji": "📚",
+                "title": "'Algún día' sin fin",
+                "description": "Ese libro, ese artículo, esa idea... siempre 'después'. Pero después nunca llega."
+            },
+            "thoughts": {
+                "emoji": "🧠",
+                "title": "Sobrecarga mental",
+                "description": "Demasiados pensamientos. Nada se convierte en acción. Todo simplemente... desaparece."
+            }
+        },
+        "tagline": "Tus pensamientos son valiosos. Pero desaparecen."
+    },
+    "solution": {
+        "title": "La Manera Spark Keeper",
+        "tagline": "Captura una vez. Entiende para siempre. Actúa cuando importa.",
+        "features": {
+            "capture": {
+                "title": "Envía cualquier cosa, en cualquier momento",
+                "description": "Texto, voz, enlaces, imágenes. Sin fricción. Solo captura."
+            },
+            "understand": {
+                "title": "La IA entiende el contexto",
+                "description": "Sin carpetas. Sin etiquetas. La IA lee, entiende y estructura todo por ti."
+            },
+            "connect": {
+                "title": "Las ideas se encuentran",
+                "description": "Los Sparks se conectan automáticamente. Tu conocimiento se convierte en una red viva."
+            },
+            "act": {
+                "title": "Convierte pensamientos en acciones",
+                "description": "Tareas, recordatorios, eventos de calendario. La IA sugiere qué hacer y cuándo."
+            }
+        },
+        "emphasis": "Sin infierno de carpetas. Sin organización manual. La IA hace el trabajo de pensar."
+    },
+    "howItWorks": {
+        "title": "Cómo Funciona",
+        "steps": {
+            "capture": {
+                "number": "01",
+                "title": "Captura cualquier cosa al instante",
+                "description": "Nota de voz mientras conduces. Captura de pantalla de inspiración. Enlace para guardar. Solo envíalo."
+            },
+            "process": {
+                "number": "02",
+                "title": "La IA crea sparks estructurados",
+                "description": "Cada entrada se convierte en un spark rico y buscable con contexto y significado."
+            },
+            "connect": {
+                "number": "03",
+                "title": "Las ideas se conectan automáticamente",
+                "description": "La IA encuentra relaciones. Tu gráfico de conocimiento crece orgánicamente."
+            },
+            "action": {
+                "number": "04",
+                "title": "Las acciones aparecen cuando se necesitan",
+                "description": "Recordatorios, tareas, ideas surgen en el momento perfecto."
+            }
+        }
+    },
+    "useCases": {
+        "title": "Vida Real, Valor Real",
+        "cases": {
+            "travel": {
+                "emoji": "🎒",
+                "title": "Planificación de Viajes",
+                "problem": "Recomendaciones dispersas en aplicaciones",
+                "solution": "Un lugar para todos los destinos, organizados automáticamente por ubicación"
+            },
+            "gifts": {
+                "emoji": "🎁",
+                "title": "Ideas de Regalos",
+                "problem": "Olvidar lo que la gente mencionó",
+                "solution": "La IA recuerda y te recuerda antes de cumpleaños y festividades"
+            },
+            "media": {
+                "emoji": "🎥",
+                "title": "Películas y Series",
+                "problem": "Perdiste la pista de qué ver",
+                "solution": "Colecciones inteligentes que saben qué has visto y qué sigue"
+            },
+            "reading": {
+                "emoji": "📖",
+                "title": "Listas de Lectura",
+                "problem": "Libros y artículos se acumulan sin leer",
+                "solution": "Cola de lectura priorizada según tus intereses y tiempo"
+            },
+            "work": {
+                "emoji": "💼",
+                "title": "Ideas de Trabajo",
+                "problem": "Ideas brillantes perdidas en reuniones",
+                "solution": "Captura ideas al instante, conéctalas a proyectos automáticamente"
+            },
+            "personal": {
+                "emoji": "🧠",
+                "title": "Crecimiento Personal",
+                "problem": "Reflexiones dispersas, patrones invisibles",
+                "solution": "La IA te ayuda a ver patrones en tus pensamientos y crecimiento con el tiempo"
+            }
+        }
+    },
+    "coach": {
+        "title": "Conoce a Tu Compañero IA",
+        "subtitle": "No solo una herramienta. Un compañero de pensamiento.",
+        "description": "Los Coaches IA de Spark Keeper entienden el contexto, hacen las preguntas correctas y te ayudan a pensar más profundo. Están aquí para asegurarse de que nada importante se escape.",
+        "sparky": {
+            "name": "Sparky",
+            "role": "Tu Coach de Fuego",
+            "personality": "Enérgico, curioso, siempre listo para ayudarte a capturar y conectar ideas."
+        }
+    },
+    "testimonials": {
+        "title": "Los Primeros Usuarios Lo Aman",
+        "items": {
+            "mental": {
+                "quote": "Finalmente me siento en control de mis pensamientos. Nada se pierde más.",
+                "author": "Adoptante Temprano"
+            },
+            "action": {
+                "quote": "Mis ideas realmente se convierten en acciones ahora. Es como tener un segundo cerebro que realmente funciona.",
+                "author": "Probador Beta"
+            },
+            "peace": {
+                "quote": "La carga mental desapareció. Confío en que Spark Keeper recuerda todo.",
+                "author": "Usuario Avanzado"
+            }
+        }
+    },
+    "media": {
+        "title": "Míralo en Acción",
+        "subtitle": "Hermoso. Inteligente. Mágico."
+    },
+    "cta": {
+        "title": "Tus pensamientos merecen algo mejor",
+        "subtitle": "Únete a la lista de espera para acceso anticipado",
+        "appStore": "App Store",
+        "googlePlay": "Google Play",
+        "comingSoon": "Próximamente",
+        "inReview": "Aplicación actualmente en revisión"
+    },
+    "footer": {
+        "tagline": "Captura una vez. Entiende para siempre. Actúa cuando importa.",
+        "copyright": "© 2026 Spark Keeper. Todos los derechos reservados."
+    },
+    "nav": {
+        "problem": "Problema",
+        "solution": "Solución",
+        "howItWorks": "Cómo Funciona",
+        "useCases": "Casos de Uso"
+    },
+    "story": {
+        "entry": {
+            "whisper": "Antes de que el pensamiento desaparezca",
+            "subtitle": "Un lugar donde nada se pierde"
+        },
+        "fragmented": {
+            "fragments": [
+                "Esa idea perfecta de regalo... ¿dónde fue?",
+                "Tenía algo importante que recordar",
+                "Lo guardé en algún lugar",
+                "Iba a investigar eso",
+                "Alguien recomendó...",
+                "Necesito planear...",
+                "Olvidé anotar",
+                "Perdido en notificaciones"
+            ]
+        },
+        "transformation": {
+            "fragments": [
+                "viaje a Islandia",
+                "regalo cumpleaños",
+                "ese artículo",
+                "recomendación película",
+                "título libro",
+                "reserva cena",
+                "idea proyecto",
+                "insight de llamada"
+            ]
+        },
+        "understanding": {
+            "title": "Spark Keeper",
+            "essence": "Todo lo que envías se convierte en parte de un espacio vivo e inteligente que te comprende"
+        },
+        "constellation": {
+            "ideas": [
+                {
+                    "text": "Viaje Islandia",
+                    "x": 15,
+                    "y": 20
+                },
+                {
+                    "text": "Auroras boreales",
+                    "x": 28,
+                    "y": 35
+                },
+                {
+                    "text": "Equipo invierno",
+                    "x": 45,
+                    "y": 25
+                },
+                {
+                    "text": "Tips fotografía",
+                    "x": 65,
+                    "y": 40
+                },
+                {
+                    "text": "Hoteles Reykjavik",
+                    "x": 52,
+                    "y": 55
+                },
+                {
+                    "text": "Planear presupuesto",
+                    "x": 30,
+                    "y": 60
+                },
+                {
+                    "text": "Ofertas vuelos",
+                    "x": 72,
+                    "y": 65
+                },
+                {
+                    "text": "Fechas viaje",
+                    "x": 18,
+                    "y": 70
+                }
+            ]
+        },
+        "presence": {
+            "whisper": "Algo está pensando contigo",
+            "qualities": [
+                "Comprende contexto, no solo palabras clave",
+                "Revela conexiones que no viste",
+                "Aprende lo que te importa",
+                "Sugiere el momento correcto para actuar"
+            ]
+        },
+        "memories": {
+            "memories": [
+                {
+                    "text": "Fin de semana en Kyoto",
+                    "context": "Mencionado en conversación, guardado con enlaces de viaje y notas de restaurantes"
+                },
+                {
+                    "text": "Cumpleaños de mamá — clase cerámica",
+                    "context": "Comentario casual que hizo hace meses, conectado a estudios locales"
+                },
+                {
+                    "text": "Esa serie de la que todos hablan",
+                    "context": "Tres amigos recomendaron, lista cuando estés"
+                },
+                {
+                    "text": "Aprender español",
+                    "context": "Apps recopiladas, podcasts y tus propios pensamientos de progreso"
+                },
+                {
+                    "text": "Tips masa madre",
+                    "context": "Receta, notas de tiempo y por qué el último no funcionó"
+                }
+            ]
+        },
+        "voices": {
+            "voices": [
+                {
+                    "quote": "Finalmente, un lugar donde mis pensamientos dispersos realmente tienen sentido. Es como tener una conversación con mi yo futuro.",
+                    "author": "Elena"
+                },
+                {
+                    "quote": "He dejado de perder ideas brillantes. Todo se conecta de formas que nunca esperé.",
+                    "author": "Marcus"
+                },
+                {
+                    "quote": "No se trata de guardar información. Se trata de entenderte mejor a ti mismo.",
+                    "author": "Sophia"
+                }
+            ]
+        },
+        "resolution": {
+            "essence": "El caos se fue. Tus pensamientos tienen un lugar. Tienes claridad."
+        },
+        "cta": {
+            "invitation": "Puedes entrar después",
+            "comingSoon": "Próximamente"
+        }
+    }
+}
