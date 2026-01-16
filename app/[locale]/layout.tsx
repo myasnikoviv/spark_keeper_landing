@@ -5,6 +5,7 @@ import { locales } from '@/i18n';
 import { Inter } from 'next/font/google';
 import type { Metadata } from "next";
 import Header from '@/components/Header';
+import { FloatingParticles } from '@/components/story/floating-particles';
 import "../globals.css";
 
 const inter = Inter({
@@ -63,6 +64,7 @@ export default async function LocaleLayout({
         <html lang={locale} suppressHydrationWarning>
             <body className={`${inter.variable} antialiased font-sans`} suppressHydrationWarning>
                 <NextIntlClientProvider messages={messages} locale={locale}>
+                    <FloatingParticles />
                     <Header />
                     {children}
                 </NextIntlClientProvider>

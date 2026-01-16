@@ -1,137 +1,71 @@
 "use client";
 import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 
 interface WhisperedVoicesProps {
   content: {
     voices: Array<{
       quote: string;
       author: string;
+      role?: string; // e.g. "Designer, UK"
+      rating?: number;
     }>;
   };
 }
 
 export function WhisperedVoices({ content }: WhisperedVoicesProps) {
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center px-6 py-20 md:py-32">
-      <div className="relative max-w-5xl w-full">
-        {/* Voices floating in space - not testimonial cards */}
-        <div className="relative flex flex-col gap-20 md:block md:h-[800px]">
-          {content.voices.map((voice, i) => {
-            const positions = [
-              { top: "15%", left: "10%" },
-              { top: "45%", right: "12%" },
-              { top: "70%", left: "15%" },
-              { top: "25%", left: "50%" }, // Added 4th position
-              { top: "60%", right: "30%" }, // Added 5th position
-            ];
+    <section className="relative min-h-[80vh] py-20 md:py-32 px-6">
+      <div className="max-w-7xl mx-auto">
 
-            const position = positions[i % positions.length];
+        {/* Masonry-style Grid - No more absolute positioning chaos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+          {content.voices.map((voice, i) => (
+            <motion.div
+              key={i}
+              className="relative p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{
+                duration: 0.8,
+                delay: i * 0.1, // Staggered reveal
+                ease: "easeOut",
+              }}
+            >
+              {/* Quote Icon */}
+              <div className="absolute top-6 right-8 text-6xl text-[#9D4EDD]/10 font-serif leading-none select-none">
+                "
+              </div>
 
-            return (
-              <motion.div
-                key={i}
-                className="static md:absolute max-w-md w-full md:w-auto"
-                style={{
-                  ...position,
-                  // Mobile adjustment: let them stack naturally
-                }}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: [0, 1, 0.9], y: 0 }}
-                viewport={{ once: false, amount: 0.3 }}
-                transition={{
-                  duration: 3,
-                  delay: i * 0.5, // Reduced delay
-                  ease: "easeOut",
-                }}
-              >
-                <motion.div
-                  animate={{
-                    y: [0, -8, 0],
-                    opacity: [0.8, 1, 0.8],
-                  }}
-                  transition={{
-                    duration: 6 + i,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  {/* Quote mark - subtle, not decorative */}
-                  <motion.div
-                    className="mb-6 text-6xl text-[#9D4EDD]/40"
-                    style={{
-                      lineHeight: 1,
-                    }}
-                    animate={{
-                      opacity: [0.3, 0.5, 0.3],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    "
-                  </motion.div>
+              {/* Rating */}
+              <div className="flex gap-1 mb-6 text-spark-orange"> {/* Use spark-orange/yellow for sparks */}
+                {[...Array(voice.rating || 5)].map((_, s) => (
+                  <Sparkles key={s} className="w-4 h-4 fill-current" />
+                ))}
+              </div>
 
-                  {/* Voice text */}
-                  <p
-                    className="text-xl md:text-2xl mb-8 leading-relaxed text-white"
-                    style={{
-                      fontWeight: 400,
-                      fontStyle: "italic",
-                      textShadow: "0 0 20px rgba(157,78,221,0.15)",
-                    }}
-                  >
-                    {voice.quote}
-                  </p>
+              {/* Quote */}
+              <p className="text-lg md:text-xl text-white/90 font-light leading-relaxed mb-8 relative z-10 text-shadow-glow">
+                "{voice.quote}"
+              </p>
 
-                  {/* Author - very subtle */}
-                  <p
-                    className="text-sm text-gray-400"
-                    style={{
-                      fontWeight: 500,
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    — {voice.author}
-                  </p>
+              {/* Author */}
+              <div className="flex flex-col">
+                <span className="text-white font-medium tracking-wide">
+                  {voice.author}
+                </span>
+                <span className="text-white/40 text-xs uppercase tracking-widest mt-1">
+                  {voice.role || "Early Adopter"}
+                </span>
+              </div>
 
-                  {/* Ambient glow */}
-                  <div
-                    className="absolute inset-0 -inset-12 -z-10"
-                    style={{
-                      background: `radial-gradient(ellipse at ${i % 2 === 0 ? "top left" : "bottom right"
-                        }, rgba(157,78,221,0.15) 0%, transparent 60%)`,
-                      filter: "blur(50px)",
-                    }}
-                  />
-                </motion.div>
-              </motion.div>
-            );
-          })}
+              {/* Card Glow Effect */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-spark-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+            </motion.div>
+          ))}
         </div>
 
-        {/* Depth layers */}
-        {[...Array(3)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: `radial-gradient(ellipse at ${30 + i * 20}% ${40 + i * 15
-                }%, rgba(0,212,255,0.03) 0%, transparent 60%)`,
-            }}
-            animate={{
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{
-              duration: 6 + i,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.5,
-            }}
-          />
-        ))}
       </div>
     </section>
   );

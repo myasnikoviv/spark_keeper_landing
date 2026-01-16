@@ -25,14 +25,15 @@ export default function SparkEffect() {
                     style={{
                         left: `${particle.x}%`,
                         top: `${particle.y}%`,
+                        boxShadow: "0 0 10px rgba(255, 107, 53, 0.4)" // Added constant glow
                     }}
                     animate={{
                         y: [0, -30, 0],
-                        opacity: [0, 1, 0],
-                        scale: [0, 1, 0],
+                        opacity: [0.2, 1, 0.2], // Never fully disappears
+                        scale: [0.8, 1.2, 0.8], // "Breathing"
                     }}
                     transition={{
-                        duration: 3,
+                        duration: 3 + Math.random() * 2, // Varied duration
                         repeat: Infinity,
                         delay: particle.delay,
                         ease: 'easeInOut',

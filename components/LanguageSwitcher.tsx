@@ -16,14 +16,14 @@ export default function LanguageSwitcher() {
     };
 
     return (
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full glass">
+        <div className="flex items-center gap-4 px-4 py-2">
             {locales.map((loc) => (
                 <button
                     key={loc}
                     onClick={() => switchLocale(loc)}
-                    className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${locale === loc
-                            ? 'bg-spark-orange text-white'
-                            : 'text-foreground/60 hover:text-foreground'
+                    className={`relative text-sm font-medium transition-all duration-300 ${locale === loc
+                            ? 'text-white text-shadow-glow after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1px] after:bg-spark-orange after:shadow-[0_0_8px_rgba(255,107,53,0.8)]'
+                            : 'text-white/40 hover:text-white/80'
                         }`}
                 >
                     {loc.toUpperCase()}

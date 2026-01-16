@@ -233,13 +233,13 @@
                 },
                 {
                     "title": "Actúa",
-                    "description": "Convierte sparks en tareas, recordatorios y planes. Nunca pierdas el ritmo.",
+                    "description": "Convierte chispas en tareas, recordatorios y planes. Nunca pierdas el ritmo.",
                     "image": "/images/screens/act.png"
                 }
             ]
         },
         "actionGallery": {
-            "h2": "Míralo en acción",
+            "h2": "Mira Spark Keeper en acción",
             "items": [
                 {
                     "title": "Planear un viaje",
@@ -248,7 +248,7 @@
                 },
                 {
                     "title": "Gestionar proyectos",
-                    "description": "Convierte notas de reunión en tareas accionables.",
+                    "description": "Convierte notas de reuniones en tareas accionables.",
                     "image": "/images/screens/action_project.png"
                 },
                 {
@@ -262,62 +262,67 @@
             "h2": "Mira la magia",
             "videoUrl": "/videos/demo.mp4"
         },
+        "metrics": {
+            "activeUsers": "2K+ Usuarios Activos",
+            "rating": "4.9/5 Calificación Promedio",
+            "privacy": "100% Privado y Seguro"
+        },
         "demos": {
-            "h2": "De la entrada a la acción",
+            "h2": "De Entrada a Acción",
             "scenarios": [
                 {
                     "title": "Enlace de viaje",
-                    "input": "Enlace a una playa oculta + nota: 'Ir en primavera'",
+                    "input": "Enlace a playa escondida + nota: 'Ir en primavera'",
                     "ai": "Detecta ubicación, mejor temporada, crea spark de viaje",
-                    "spark": "Viaje Primavera — Playa Oculta",
-                    "action": "Planear fin de semana"
+                    "spark": "Viaje Primavera — Playa Escondida",
+                    "action": "Planear finde"
                 },
                 {
                     "title": "Nota de voz (regalo)",
                     "input": "Voz: 'Katia mencionó que quiere un concierto clásico'",
-                    "ai": "Extrae intención (idea de regalo), crea spark + alternativas",
+                    "ai": "Extrae intención (regalo), crea spark + alternativas",
                     "spark": "Regalo: Entradas concierto clásico",
                     "action": "Recordatorio 2 semanas antes"
                 },
                 {
                     "title": "Captura (lista pelis)",
-                    "input": "Captura de un post de Instagram 'Top 10 thrillers'",
+                    "input": "Captura de post Instagram 'Top 10 thrillers'",
                     "ai": "Reconoce lista, extrae títulos",
                     "spark": "Colección: Thrillers para ver",
-                    "action": "Añadir a flujo de lista"
+                    "action": "Flujo añadir a watchlist"
                 }
             ],
             "ctaSlot": {
-                "title": "Velo en tu vida",
-                "subtitle": "Experimenta la magia"
+                "title": "Míralo en tu vida",
+                "subtitle": "Vive la magia"
             }
         },
         "useCases": {
-            "h2": "Construido para la vida real",
+            "h2": "Hecho para la vida real",
             "items": [
                 {
                     "title": "Viajes",
-                    "story": "Ese lugar que guardaste hace meses. Cuando finalmente planeas el viaje, ya está ahí — guardado y conectado."
+                    "story": "Ese lugar que guardaste hace meses. Cuando planeas el viaje, ya está ahí — guardado y conectado."
                 },
                 {
                     "title": "Regalos",
-                    "story": "Tu pareja menciona casualmente lo que quiere. Lo capturas una vez. Spark Keeper te recuerda antes de su cumpleaños."
+                    "story": "Tu pareja menciona qué quiere. Lo capturas una vez. Spark Keeper te recuerda antes de su cumple."
                 },
                 {
                     "title": "Películas y Series",
-                    "story": "¿Contenido guardado que se vuelve un caos? Spark Keeper convierte los guardados en una 'lista de ver' limpia."
+                    "story": "¿Contenido guardado que es un caos? Spark Keeper lo convierte en una lista limpia y sigue tu progreso."
                 },
                 {
                     "title": "Lista de Lectura",
-                    "story": "Artículos que juras que leerás. Envía el enlace. Spark Keeper resume, etiqueta y te recuerda cuando tienes tiempo."
+                    "story": "Artículos que juras leerás. Envía enlaces. Spark Keeper resume y te recuerda cuando tienes tiempo."
                 },
                 {
                     "title": "Ideas de Trabajo",
-                    "story": "Una gran idea de una reunión — desaparecida. Envía una nota de voz rápida. Spark Keeper crea la siguiente acción."
+                    "story": "Una gran idea en una reunión — se fue. Envía una nota de voz. Spark Keeper crea la siguiente acción."
                 },
                 {
                     "title": "Salud y Rutinas",
-                    "story": "Un hábito que quieres empezar 'algún día'. Captura la intención. Spark Keeper sugiere un pequeño plan accionable."
+                    "story": "Un hábito para 'algún día'. Captura la intención. Spark Keeper sugiere un plan accionable."
                 }
             ],
             "ctaSlot": {
@@ -342,165 +347,153 @@
                     "y": 20
                 },
                 {
-                    "text": "Aurora Boreal",
+                    "text": "Auroras boreales",
                     "x": 28,
                     "y": 35
                 },
                 {
-                    "text": "Ropa Invierno",
+                    "text": "Equipo invierno",
                     "x": 45,
                     "y": 25
                 },
                 {
-                    "text": "Tips Fotos",
+                    "text": "Tips fotografía",
                     "x": 65,
                     "y": 40
                 },
                 {
-                    "text": "Hoteles",
+                    "text": "Hoteles Reykjavik",
                     "x": 52,
                     "y": 55
                 },
                 {
-                    "text": "Presupuesto",
+                    "text": "Planear presupuesto",
                     "x": 30,
                     "y": 60
                 },
                 {
-                    "text": "Vuelos",
+                    "text": "Ofertas vuelos",
                     "x": 72,
                     "y": 65
                 },
                 {
-                    "text": "Fechas",
+                    "text": "Fechas viaje",
                     "x": 18,
-                    "y": 70
-                }
-            ]
-        },
-        "metrics": {
-            "activeUsers": "2K+ Usuarios Activos",
-            "rating": "4.9/5 Calificación Promedio",
-            "privacy": "100% Privado y Seguro"
-        },
-        "testimonials": {
-            "h2": "Lo que dicen los primeros usuarios",
-            "items": [
-                {
-                    "quote": "Dejé de hacer capturas de todo 'para después'. Ahora realmente vuelve cuando lo necesito.",
-                    "author": "Sarah J.",
-                    "role": "Diseñadora, UK",
-                    "rating": 5
-                },
-                {
-                    "quote": "Se siente como si mi cerebro tuviera una barra de búsqueda.",
-                    "author": "Mike T.",
-                    "role": "Fundador, USA",
-                    "rating": 5
-                },
-                {
-                    "quote": "Las conexiones de la IA son magia: recuerda lo que olvidé que guardé.",
-                    "author": "Elena R.",
-                    "role": "Escritora, España",
-                    "rating": 5
-                },
-                {
-                    "quote": "Finalmente planeo viajes usando cosas que guardé hace meses.",
-                    "author": "David K.",
-                    "role": "Viajero, Alemania",
-                    "rating": 5
-                },
-                {
-                    "quote": "Los regalos ya no son estrés. Guardo y olvido hasta el momento.",
-                    "author": "Anna L.",
-                    "role": "Madre, Canadá",
-                    "rating": 5
-                },
-                {
-                    "quote": "Mi lista de películas ya no es un caos. Limpio y claro.",
-                    "author": "James P.",
-                    "role": "Estudiante, UK",
-                    "rating": 4
-                },
-                {
-                    "quote": "Uso esto tras reuniones — nota de voz, obtengo siguientes pasos.",
-                    "author": "Robert K.",
-                    "role": "PM, USA",
-                    "rating": 5
-                },
-                {
-                    "quote": "Es tranquilo. No es otra app de productividad ruidosa.",
-                    "author": "Emma V.",
-                    "role": "Artista, Francia",
-                    "rating": 5
-                },
-                {
-                    "quote": "Pensé que eran notas. Es un espacio para pensar.",
-                    "author": "Lucas M.",
-                    "role": "Desarrollador, Brasil",
-                    "rating": 5
-                },
-                {
-                    "quote": "La metáfora de la 'chispa' realmente encaja con la sensación.",
-                    "author": "Sofia K.",
-                    "role": "Profesora, Suecia",
-                    "rating": 5
-                }
-            ]
-        },
-        "faq": {
-            "h2": "FAQ",
-            "items": [
-                {
-                    "q": "¿Es una app de notas?",
-                    "a": "No — es un segundo cerebro que captura, conecta y convierte pensamientos en acciones."
-                },
-                {
-                    "q": "¿Qué puedo enviar?",
-                    "a": "Texto, voz, enlaces, imágenes, capturas — cualquier cosa."
-                },
-                {
-                    "q": "¿Cómo organiza la IA?",
-                    "a": "Extrae significado, crea sparks, conecta ideas y sugiere acciones."
-                },
-                {
-                    "q": "¿Puedo buscar todo?",
-                    "a": "Sí — los sparks son buscables y están conectados."
-                },
-                {
-                    "q": "¿Debo organizar manualmente?",
-                    "a": "No. El objetivo es cero gestión de carpetas."
-                },
-                {
-                    "q": "¿Es privado?",
-                    "a": "Sí. Tus pensamientos son tuyos. Priorizamos la privacidad."
-                },
-                {
-                    "q": "¿Cuándo estará disponible?",
-                    "a": "Próximamente — actualmente en revisión."
-                },
-                {
-                    "q": "¿Qué plataformas?",
-                    "a": "iOS y Android."
-                }
-            ]
-        },
-        "resolution": {
-            "essence": "Tu mente es para tener ideas, no para retenerlas."
-        },
-        "footer": {
-            "h2": "Quédate con lo importante. Suelta el resto.",
-            "ctaSlot": {
-                "title": "Obtén Spark Keeper",
-                "subtitle": "Únete temprano — sé el primero"
-            },
-            "links": [
-                "Privacidad",
-                "Términos",
-                "Soporte",
-                "Contacto"
-            ],
-            "copyright": "© 2026 Spark Keeper. Todos los derechos reservados."
-        }
-    }
+                    "testimonials": {
+                        "h2": "Lo que dicen los primeros usuarios",
+                        "items": [
+                            {
+                                "quote": "Dejé de hacer capturas de pantalla de todo 'para después'. Ahora realmente vuelve cuando lo necesito.",
+                                "author": "Sarah J.",
+                                "role": "Diseñadora, UK",
+                                "rating": 5
+                            },
+                            {
+                                "quote": "Se siente como si mi cerebro tuviera una barra de búsqueda.",
+                                "author": "Mike T.",
+                                "role": "Fundador, USA",
+                                "rating": 5
+                            },
+                            {
+                                "quote": "Las conexiones de IA son la magia: recuerda lo que olvidé que guardé.",
+                                "author": "Elena R.",
+                                "role": "Escritora, España",
+                                "rating": 5
+                            },
+                            {
+                                "quote": "Finalmente planeo viajes usando cosas que guardé hace meses.",
+                                "author": "David K.",
+                                "role": "Viajero, Alemania",
+                                "rating": 5
+                            },
+                            {
+                                "quote": "Las ideas de regalos ya no son estresantes. Capturo una vez y olvido hasta que llega el momento.",
+                                "author": "Anna L.",
+                                "role": "Mamá, Canadá",
+                                "rating": 5
+                            },
+                            {
+                                "quote": "Mi lista de seguimiento dejó de ser un desastre. Es limpia y accionable.",
+                                "author": "James P.",
+                                "role": "Estudiante, UK",
+                                "rating": 4
+                            },
+                            {
+                                "quote": "Lo uso después de las reuniones: nota de voz, próximos pasos.",
+                                "author": "Robert C.",
+                                "role": "PM, USA",
+                                "rating": 5
+                            },
+                            {
+                                "quote": "Es tranquilo. No es otra aplicación de productividad ruidosa.",
+                                "author": "Emma W.",
+                                "role": "Artista, Francia",
+                                "rating": 5
+                            },
+                            {
+                                "quote": "Pensé que eran notas. Es más como un espacio para pensar.",
+                                "author": "Lucas M.",
+                                "role": "Dev, Brasil",
+                                "rating": 5
+                            },
+                            {
+                                "quote": "La metáfora de la 'chispa' realmente coincide con cómo se siente usarlo.",
+                                "author": "Sophie K.",
+                                "role": "Profesora, Suecia",
+                                "rating": 5
+                            }
+                        ]
+                    },
+                    "faq": {
+                        "h2": "FAQ",
+                        "items": [
+                            {
+                                "q": "¿Es una app de notas?",
+                                "a": "No — es un segundo cerebro que captura, conecta y convierte pensamientos en acciones."
+                            },
+                            {
+                                "q": "¿Qué puedo enviar?",
+                                "a": "Texto, voz, enlaces, imágenes, capturas — cualquier cosa."
+                            },
+                            {
+                                "q": "¿Cómo organiza la IA?",
+                                "a": "Extrae significado, crea sparks, conecta ideas y sugiere acciones."
+                            },
+                            {
+                                "q": "¿Puedo buscar todo?",
+                                "a": "Sí — los sparks son buscables y están conectados."
+                            },
+                            {
+                                "q": "¿Debo organizar manualmente?",
+                                "a": "No. El objetivo es cero gestión de carpetas."
+                            },
+                            {
+                                "q": "¿Es privado?",
+                                "a": "Sí. Tus pensamientos son tuyos. Priorizamos la privacidad."
+                            },
+                            {
+                                "q": "¿Cuándo estará disponible?",
+                                "a": "Próximamente — actualmente en revisión."
+                            },
+                            {
+                                "q": "¿Qué plataformas?",
+                                "a": "iOS y Android."
+                            }
+                        ]
+                    },
+                    "footer": {
+                        "h2": "Quédate con lo importante. Suelta el resto.",
+                        "ctaSlot": {
+                            "title": "Obtén Spark Keeper",
+                            "subtitle": "Únete temprano — sé el primero"
+                        },
+                        "links": [
+                            "Privacidad",
+                            "Términos",
+                            "Soporte",
+                            "Contacto"
+                        ],
+                        "copyright": "© 2026 Spark Keeper. Todos los derechos reservados."
+}
+}
 }

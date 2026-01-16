@@ -3,7 +3,11 @@
 import Image from 'next/image';
 import LanguageSwitcher from './LanguageSwitcher';
 
+import { useTranslations } from 'next-intl';
+
 export default function Header() {
+    const t = useTranslations();
+
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
@@ -22,7 +26,6 @@ export default function Header() {
                         height={40}
                         className="drop-shadow-[0_0_15px_rgba(255,107,53,0.6)]"
                     />
-                    <span className="text-xl font-bold gradient-text">Spark Keeper</span>
                 </div>
 
                 <nav className="hidden md:flex items-center gap-8">
@@ -30,25 +33,25 @@ export default function Header() {
                         onClick={() => scrollToSection('problem')}
                         className="text-sm text-foreground/80 hover:text-foreground transition-colors"
                     >
-                        Problem
+                        {t('nav.problem')}
                     </button>
                     <button
                         onClick={() => scrollToSection('solution')}
                         className="text-sm text-foreground/80 hover:text-foreground transition-colors"
                     >
-                        Solution
+                        {t('nav.solution')}
                     </button>
                     <button
-                        onClick={() => scrollToSection('how-it-works')}
+                        onClick={() => scrollToSection('howItWorks')}
                         className="text-sm text-foreground/80 hover:text-foreground transition-colors"
                     >
-                        How It Works
+                        {t('nav.howItWorks')}
                     </button>
                     <button
-                        onClick={() => scrollToSection('use-cases')}
+                        onClick={() => scrollToSection('useCases')}
                         className="text-sm text-foreground/80 hover:text-foreground transition-colors"
                     >
-                        Use Cases
+                        {t('nav.useCases')}
                     </button>
                 </nav>
 

@@ -174,137 +174,331 @@
         "useCases": "Use Cases"
     },
     "story": {
-        "entry": {
-            "whisper": "Before the thought disappears",
-            "subtitle": "A place where nothing is lost"
+        "hero": {
+            "h1": "Spark Keeper — an AI second brain for ideas that matter",
+            "p1": "Capture anything. Spark Keeper understands, connects, and brings it back when it matters.",
+            "ctaSlot": {
+                "title": "Get Spark Keeper",
+                "subtitle": "Coming Soon — currently in review",
+                "micro": "Join early — be first when it launches.",
+                "appStore": "App Store",
+                "googlePlay": "Google Play",
+                "disabled": true
+            }
         },
-        "fragmented": {
+        "problem": {
+            "h2": "Why ideas disappear",
+            "p1": "We save ideas everywhere — in notes, bookmarks, chats, screenshots, voice memos.",
+            "p2": "But when the moment comes, we can’t find what matters.",
             "fragments": [
-                "That perfect gift idea... where did it go?",
-                "I had something important to remember",
-                "Saved this somewhere",
-                "Was going to look into that",
-                "Someone recommended...",
-                "Need to plan...",
-                "Forgot to write down",
-                "Lost in notifications"
+                "Saved it somewhere...",
+                "This was important.",
+                "Where was that place?",
+                "I'll do it later.",
+                "I'll remember this.",
+                "Lost in screenshots"
+            ],
+            "ctaSlot": {
+                "title": "Stop losing ideas",
+                "subtitle": "Join the waitlist"
+            }
+        },
+        "solution": {
+            "h2": "One place for everything you think about",
+            "p1": "Send text, voice, links, images. AI creates sparks, connections, and actions.",
+            "ctaSlot": {
+                "title": "Start capturing",
+                "subtitle": "No folders. No manual sorting."
+            }
+        },
+        "howItWorksGallery": {
+            "h2": "How Spark Keeper Works",
+            "steps": [
+                {
+                    "title": "Capture",
+                    "description": "Send anything to Spark Keeper. It's as easy as messaging a friend.",
+                    "image": "/images/screens/capture.png"
+                },
+                {
+                    "title": "Organize",
+                    "description": "AI automatically tags, titles, and sorts your sparks into collections.",
+                    "image": "/images/screens/organize.png"
+                },
+                {
+                    "title": "Connect",
+                    "description": "See how your ideas relate. Discover connections you never knew existed.",
+                    "image": "/images/screens/connect.png"
+                },
+                {
+                    "title": "Act",
+                    "description": "Turn sparks into tasks, reminders, and plans. Never miss a beat.",
+                    "image": "/images/screens/act.png"
+                }
             ]
         },
-        "transformation": {
-            "fragments": [
-                "trip to Iceland",
-                "birthday gift",
-                "that article",
-                "movie recommendation",
-                "book title",
-                "dinner reservation",
-                "project idea",
-                "insight from call"
+        "actionGallery": {
+            "h2": "See Spark Keeper in Action",
+            "items": [
+                {
+                    "title": "Plan a Trip",
+                    "description": "From scattered links to a full itinerary.",
+                    "image": "/images/screens/action_trip.png"
+                },
+                {
+                    "title": "Manage Projects",
+                    "description": "Turn meeting notes into actionable tasks.",
+                    "image": "/images/screens/action_project.png"
+                },
+                {
+                    "title": "Curate Collections",
+                    "description": "Books, movies, recipes — all in one place.",
+                    "image": "/images/screens/action_collection.png"
+                }
             ]
         },
-        "understanding": {
-            "title": "Spark Keeper",
-            "essence": "Everything you send becomes part of a living, intelligent space that understands you"
+        "videoShowcase": {
+            "h2": "Watch the Magic",
+            "videoUrl": "/videos/demo.mp4"
+        },
+        "metrics": {
+            "activeUsers": "2K+ Active Users",
+            "rating": "4.9/5 Average Rating",
+            "privacy": "100% Private & Secure"
+        },
+        "demos": {
+            "h2": "From Input to Action",
+            "scenarios": [
+                {
+                    "title": "Travel link",
+                    "input": "Link to a hidden beach + note: 'Go in spring'",
+                    "ai": "Detects location, best season, creates travel spark",
+                    "spark": "Spring Trip — Hidden Beach",
+                    "action": "Plan weekend trip"
+                },
+                {
+                    "title": "Voice note (gift)",
+                    "input": "Voice: 'Katia mentioned she wants a classic concert'",
+                    "ai": "Extracts intent (gift idea), creates spark + alternatives",
+                    "spark": "Gift: Classical concert tickets",
+                    "action": "Reminder 2 weeks before date"
+                },
+                {
+                    "title": "Screenshot (movie list)",
+                    "input": "Screenshot of an Instagram post 'Top 10 thrillers'",
+                    "ai": "Recognizes list, extracts titles",
+                    "spark": "Collection: Must Watch Thrillers",
+                    "action": "Add to watchlist flow"
+                }
+            ],
+            "ctaSlot": {
+                "title": "See it in your life",
+                "subtitle": "Experience the magic"
+            }
+        },
+        "useCases": {
+            "h2": "Built for real life",
+            "items": [
+                {
+                    "title": "Travel",
+                    "story": "That place you saved months ago. When you finally plan the trip, it’s already there — saved, searchable, connected."
+                },
+                {
+                    "title": "Gifts",
+                    "story": "Your partner casually mentions what they want. You capture it once. Spark Keeper reminds you before their birthday."
+                },
+                {
+                    "title": "Movies & Series",
+                    "story": "Saved content that turns into chaos? Spark Keeper turns saves into a clean 'watch list' — and tracks what’s done."
+                },
+                {
+                    "title": "Reading List",
+                    "story": "Articles you swear you’ll read. Drop links in. Spark Keeper summarizes, tags, and reminds you when you have time."
+                },
+                {
+                    "title": "Work Insights",
+                    "story": "A great idea from a meeting — gone. Send a quick voice note. Spark Keeper turns it into a spark and creates the next action."
+                },
+                {
+                    "title": "Health & Routines",
+                    "story": "A habit you want to start 'someday'. Capture the intent. Spark Keeper suggests a small actionable plan."
+                }
+            ],
+            "ctaSlot": {
+                "title": "Capture your life",
+                "subtitle": "Coming soon"
+            }
+        },
+        "coach": {
+            "h2": "An AI that thinks with you",
+            "p1": "Ask, refine, plan. Spark Keeper helps you move from thought to action.",
+            "ctaSlot": {
+                "title": "Meet your partner",
+                "subtitle": "Smarter every day"
+            }
         },
         "constellation": {
+            "intro": "Your ideas connect automatically",
             "ideas": [
                 {
-                    "text": "Iceland trip",
+                    "text": "Iceland Trip",
                     "x": 15,
                     "y": 20
                 },
                 {
-                    "text": "Northern lights",
+                    "text": "Northern Lights",
                     "x": 28,
                     "y": 35
                 },
                 {
-                    "text": "Winter gear",
+                    "text": "Winter Gear",
                     "x": 45,
                     "y": 25
                 },
                 {
-                    "text": "Photography tips",
+                    "text": "Photo Tips",
                     "x": 65,
                     "y": 40
                 },
                 {
-                    "text": "Reykjavik hotels",
+                    "text": "Hotels",
                     "x": 52,
                     "y": 55
                 },
                 {
-                    "text": "Budget planning",
+                    "text": "Budget",
                     "x": 30,
                     "y": 60
                 },
                 {
-                    "text": "Flight deals",
+                    "text": "Flights",
                     "x": 72,
                     "y": 65
                 },
                 {
-                    "text": "Travel dates",
+                    "text": "Dates",
                     "x": 18,
                     "y": 70
                 }
             ]
         },
-        "presence": {
-            "whisper": "Something is thinking with you",
-            "qualities": [
-                "Understands context, not just keywords",
-                "Surfaces connections you didn't see",
-                "Learns what matters to you",
-                "Suggests the right moment to act"
-            ]
-        },
-        "memories": {
-            "memories": [
+        "testimonials": {
+            "h2": "What early users say",
+            "items": [
                 {
-                    "text": "Weekend in Kyoto",
-                    "context": "Mentioned during conversation, saved with travel links and restaurant notes"
+                    "quote": "I stopped screenshotting everything 'for later'. Now it actually comes back when I need it.",
+                    "author": "Sarah J.",
+                    "role": "Designer, UK",
+                    "rating": 5
                 },
                 {
-                    "text": "Mom's birthday — pottery class",
-                    "context": "Casual comment she made months ago, connected to local studios"
+                    "quote": "Feels like my brain has a search bar.",
+                    "author": "Mike T.",
+                    "role": "Founder, USA",
+                    "rating": 5
                 },
                 {
-                    "text": "That series everyone talks about",
-                    "context": "Three friends recommended, now ready when you are"
+                    "quote": "The AI connections are the magic — it remembers what I forgot I saved.",
+                    "author": "Elena R.",
+                    "role": "Writer, Spain",
+                    "rating": 5
                 },
                 {
-                    "text": "Learn Spanish",
-                    "context": "Collected apps, podcasts, and your own progress thoughts"
+                    "quote": "I finally plan trips using things I saved months ago.",
+                    "author": "David K.",
+                    "role": "Traveler, Germany",
+                    "rating": 5
                 },
                 {
-                    "text": "Sourdough starter tips",
-                    "context": "Recipe, timing notes, and why the last one didn't work"
+                    "quote": "Gift ideas are no longer stressful. I capture once and forget until it’s time.",
+                    "author": "Anna L.",
+                    "role": "Mom, Canada",
+                    "rating": 5
+                },
+                {
+                    "quote": "My watchlist stopped being a mess. It’s clean and actionable.",
+                    "author": "James P.",
+                    "role": "Student, UK",
+                    "rating": 4
+                },
+                {
+                    "quote": "I use it after meetings — voice note in, next steps out.",
+                    "author": "Robert C.",
+                    "role": "PM, USA",
+                    "rating": 5
+                },
+                {
+                    "quote": "It’s calm. Not another noisy productivity app.",
+                    "author": "Emma W.",
+                    "role": "Artist, France",
+                    "rating": 5
+                },
+                {
+                    "quote": "I thought it was notes. It’s more like a thinking space.",
+                    "author": "Lucas M.",
+                    "role": "Dev, Brazil",
+                    "rating": 5
+                },
+                {
+                    "quote": "The 'spark' metaphor actually matches how it feels to use it.",
+                    "author": "Sophie K.",
+                    "role": "Teacher, Sweden",
+                    "rating": 5
                 }
             ]
         },
-        "voices": {
-            "voices": [
+        "faq": {
+            "h2": "FAQ",
+            "items": [
                 {
-                    "quote": "Finally, a place where my scattered thoughts actually make sense. It's like having a conversation with my future self.",
-                    "author": "Elena"
+                    "q": "Is Spark Keeper a notes app?",
+                    "a": "No — it’s a second brain that captures, connects, and turns thoughts into actions."
                 },
                 {
-                    "quote": "I've stopped losing brilliant ideas. Everything connects in ways I never expected.",
-                    "author": "Marcus"
+                    "q": "What can I send to it?",
+                    "a": "Text, voice, links, images, screenshots — anything."
                 },
                 {
-                    "quote": "It's not about saving information. It's about understanding yourself better.",
-                    "author": "Sophia"
+                    "q": "How does AI organize things?",
+                    "a": "It extracts meaning, creates sparks, links related ideas, and suggests actions."
+                },
+                {
+                    "q": "Can I search everything?",
+                    "a": "Yes — sparks are searchable and connected through tags and relationships."
+                },
+                {
+                    "q": "Do I need to manually organize?",
+                    "a": "No. The goal is zero folder management."
+                },
+                {
+                    "q": "Is it private?",
+                    "a": "Yes. Your thoughts are yours. We prioritize privacy."
+                },
+                {
+                    "q": "When is the app available?",
+                    "a": "Coming soon — currently in review."
+                },
+                {
+                    "q": "Which platforms?",
+                    "a": "iOS and Android."
                 }
             ]
         },
         "resolution": {
-            "essence": "The chaos is gone. Your thoughts have a place. You have clarity."
+            "essence": "Your mind is for having ideas, not holding them."
         },
-        "cta": {
-            "invitation": "Join the waitlist",
-            "comingSoon": "Available Soon"
+        "footer": {
+            "h2": "Keep what matters. Let go of the rest.",
+            "ctaSlot": {
+                "title": "Get Spark Keeper",
+                "subtitle": "Join early — be first when it launches"
+            },
+            "links": [
+                "Privacy Policy",
+                "Terms of Service",
+                "Support",
+                "Contact"
+            ],
+            "copyright": "© 2026 Spark Keeper. All rights reserved."
         }
     }
 }
