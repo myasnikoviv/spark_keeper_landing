@@ -25,12 +25,12 @@ export function VisualCTA({ content, delay = 0, className = "" }: VisualCTAProps
             transition={{ duration: 1.2, ease: "easeOut", delay }}
             className={`relative z-20 flex flex-col items-center text-center py-16 ${className}`}
         >
-            {/* Ambient Glow Backend - Living/Breathing */}
+            {/* Ambient Glow Backend - LIVING (Amplify) */}
             <motion.div
-                className="absolute inset-0 bg-spark-orange/5 blur-[100px] rounded-full pointer-events-none"
+                className="absolute inset-0 bg-spark-orange/20 blur-[100px] rounded-full pointer-events-none"
                 animate={{
-                    opacity: [0.2, 0.4, 0.2],
-                    scale: [0.9, 1.1, 0.9],
+                    opacity: [0.2, 0.5, 0.2],
+                    scale: [0.9, 1.2, 0.9],
                 }}
                 transition={{
                     duration: 4,

@@ -12,25 +12,26 @@ interface FragmentedRealityProps {
 }
 
 export function FragmentedReality({ content, visualOnly = false }: FragmentedRealityProps) {
-  // Deterministic fragments generation to prevent hydration errors
-  const fragments = content.fragments.map((text, i) => {
-    // Pseudo-random based on index to ensure SSR match
+  // Deterministic chaotic generation (18 fragments)
+  // We double the content if needed to get more density
+  const baseFragments = content.fragments.concat(content.fragments).slice(0, 18);
+
+  const fragments = baseFragments.map((text, i) => {
+    // Pseudo-random based on index
     const r1 = ((i * 13 + 7) % 100) / 100; // 0..1
     const r2 = ((i * 29 + 3) % 100) / 100; // 0..1
     const r3 = ((i * 7 + 19) % 100) / 100; // 0..1
 
-    const col = i % 3;
-    const row = Math.floor(i / 3);
-
     return {
       text,
-      // Grid-ish but chaotic, distributed deterministically
-      left: `${10 + (col * 30) + (r1 * 20 - 10)}%`,
-      top: `${20 + (row * 15) + (r2 * 10 - 5)}%`,
-      duration: 15 + r3 * 10,
-      delay: i * 0.5,
+      // Fully chaotic spread
+      left: `${10 + (r1 * 80)}%`, // 10-90%
+      top: `${10 + (r2 * 80)}%`,  // 10-90%
+      duration: 2 + r3 * 3, // Fast flash: 2-5s
+      delay: i * 0.3,       // Staggered start
       // Drift direction
-      drift: r1 > 0.5 ? 20 : -20,
+      driftX: (r1 - 0.5) * 50, // -25 to +25px
+      driftY: (r2 - 0.5) * 50,
     };
   });
 
@@ -75,17 +76,17 @@ export function FragmentedReality({ content, visualOnly = false }: FragmentedRea
         ))}
       </div>
 
-      {/* Background Fragments (Orderly) */}
+      {/* Background Fragments (Chaotic Flash) */}
       <div className="absolute inset-0 pointer-events-none select-none">
         {fragments.map((f, i) => (
           <motion.div
             key={i}
-            // Increased opacity: text-white/5 -> text-white/30. Added blur for "dreamy" look.
-            className="absolute text-xl md:text-3xl text-white/30 font-light whitespace-nowrap tracking-widest blur-[1px]"
+            className="absolute text-xl md:text-3xl text-white/40 font-light whitespace-nowrap tracking-widest blur-[1px]"
             style={{ left: f.left, top: f.top }}
             animate={{
-              x: [0, f.drift, 0], // Gentle horizontal drift
-              opacity: [0.2, 0.5, 0.2], // Pulsing visibility
+              x: [0, f.driftX],
+              y: [0, f.driftY],
+              opacity: [0, 1, 0], // Flash cycle
             }}
             transition={{
               duration: f.duration,

@@ -1,41 +1,21 @@
 "use client";
-import { motion, useScroll, useTransform, useMotionValue } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
 
-interface Particle {
+interface SwarmParticle {
   id: number;
-  x: number;
-  y: number;
   size: number;
-  duration: number;
-  delay: number;
   color: string;
-  baseX: number;
-  baseY: number;
+  springConfig: { stiffness: number; damping: number; mass: number };
+  offsetX: number;
+  offsetY: number;
 }
 
 export function FloatingParticles() {
-  const [particles, setParticles] = useState<Particle[]>([]);
-  const { scrollYProgress } = useScroll();
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  const mouseX = useMotionValue(-100); // Start off-screen
+  const mouseY = useMotionValue(-100);
 
-  // Story Arc Mappings
-  // 0-10% (Entry): Calm
-  // 10-35% (Fragmentation/Overload): Chaos (High movement, spread)
-  // 35-60% (Intervention/Understanding): Attraction (Pull to center/mouse)
-  // 60-80% (Connection/RealLife): Structured (Grid-like or slow drift)
-  // 80-100% (Presence/Resolution): Calm (Floating upwards)
-
-  const chaosLevel = useTransform(scrollYProgress,
-    [0, 0.1, 0.25, 0.35, 0.45, 0.6, 0.8, 1],
-    [0, 0, 1, 1, 0.5, 0.2, 0, 0]
-  );
-
-  const speedMultiplier = useTransform(scrollYProgress,
-    [0, 0.3, 0.6, 1],
-    [1, 5, 2, 0.5]
-  );
+  const [swarm, setSwarm] = useState<SwarmParticle[]>([]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -47,81 +27,92 @@ export function FloatingParticles() {
   }, [mouseX, mouseY]);
 
   useEffect(() => {
-    const colors = [
-      "rgba(0, 212, 255, 0.8)", // Electric Blue
-      "rgba(157, 78, 221, 0.8)", // Neon Violet
-      "rgba(255, 107, 53, 0.7)", // Warm Orange
-      "rgba(255, 255, 255, 0.6)", // White
-    ];
-
-    const newParticles: Particle[] = Array.from({ length: 80 }, (_, i) => ({
+    // 15 particles for the "Tail"
+    const newSwarm = Array.from({ length: 15 }, (_, i) => ({
       id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 4 + 1,
-      duration: Math.random() * 20 + 10,
-      delay: Math.random() * 5,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      baseX: Math.random() * 100,
-      baseY: Math.random() * 100
+      size: Math.random() * 3 + 1, // 1-4px
+      color: i % 2 === 0 ? "rgba(255, 107, 53, 0.8)" : "rgba(157, 78, 221, 0.8)", // Orange/Purple
+      // Increasing mass/damping per index creates the "trail" lag
+      springConfig: {
+        stiffness: 150 - i * 5, // Less stiff at the end
+        damping: 15 + i * 2,    // More damping at the end (drag)
+        mass: 1 + i * 0.1       // Heavier at the end
+      },
+      offsetX: (Math.random() - 0.5) * 40, // Local spread
+      offsetY: (Math.random() - 0.5) * 40
     }));
-
-    setParticles(newParticles);
+    setSwarm(newSwarm);
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-[1]">
-      {particles.map((particle) => (
-        <ParticleItem
-          key={particle.id}
-          particle={particle}
-          mouseX={mouseX}
-          mouseY={mouseY}
-          chaos={chaosLevel}
-          speed={speedMultiplier}
-        />
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-[50]">
+      {swarm.map((p) => (
+        <SwarmParticleItem key={p.id} particle={p} mouseX={mouseX} mouseY={mouseY} />
       ))}
+      {/* Ambient background dust (subtle, separate from swarm) */}
+      <BackgroundDust />
     </div>
   );
 }
 
-function ParticleItem({ particle, mouseX, mouseY, chaos, speed }: { particle: Particle, mouseX: any, mouseY: any, chaos: any, speed: any }) {
-  const x = useMotionValue(particle.baseX);
-  const y = useMotionValue(particle.baseY);
-
-  // Complex animation logic would ideally go here, but for React performance we trust CSS/Framer optimization
-  // simplified for stability: use style transforms driven by global values if possible, 
-  // or just allow standard float with "chaos" modifying scale/opacity via standard variants.
-
-  // Actually, binding single motion values to 80 components is heavy. 
-  // Let's use a simpler approach: 
-  // The Container drives CSS variables, or particles react to general state?
-  // enh3.md asks for "Scene 0... Scene 1" distinct behaviors. 
-  // Let's keep it simple: Standard float + Mouse Parallax + Scroll Speed.
+function SwarmParticleItem({ particle, mouseX, mouseY }: { particle: SwarmParticle, mouseX: any, mouseY: any }) {
+  const springX = useSpring(mouseX, particle.springConfig);
+  const springY = useSpring(mouseY, particle.springConfig);
 
   return (
     <motion.div
-      className="absolute rounded-full blur-[1px]"
+      className="absolute rounded-full"
       style={{
-        left: `${particle.x}%`,
-        top: `${particle.y}%`,
+        x: springX,
+        y: springY,
         width: particle.size,
         height: particle.size,
         backgroundColor: particle.color,
-        boxShadow: `0 0 ${particle.size * 2}px ${particle.color}`,
-      }}
-      animate={{
-        y: [0, -40, 0],
-        x: [0, Math.random() * 30 - 15, 0],
-        opacity: [0.4, 1, 0.4],
-        scale: [1, 1.5, 1],
-      }}
-      transition={{
-        duration: particle.duration,
-        delay: particle.delay,
-        repeat: Infinity,
-        ease: "easeInOut",
+        translateX: particle.offsetX, // Local jitter
+        translateY: particle.offsetY,
+        boxShadow: `0 0 ${particle.size * 3}px ${particle.color}`
       }}
     />
+  );
+}
+
+function BackgroundDust() {
+  // Static background noise for depth (replaces old heavy logic)
+  const [dust, setDust] = useState<any[]>([]);
+
+  useEffect(() => {
+    setDust(Array.from({ length: 40 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      size: Math.random() * 2,
+      duration: Math.random() * 10 + 10
+    })));
+  }, []);
+
+  return (
+    <div className="absolute inset-0 z-[-1]">
+      {dust.map((d) => (
+        <motion.div
+          key={d.id}
+          className="absolute bg-white/10 rounded-full"
+          style={{
+            left: `${d.left}%`,
+            top: `${d.top}%`,
+            width: d.size,
+            height: d.size
+          }}
+          animate={{
+            y: [0, -30, 0],
+            opacity: [0.1, 0.3, 0.1]
+          }}
+          transition={{
+            duration: d.duration,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+      ))}
+    </div>
   )
 }

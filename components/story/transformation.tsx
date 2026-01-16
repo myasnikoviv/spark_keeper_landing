@@ -8,141 +8,92 @@ interface TransformationProps {
 }
 
 export function Transformation({ content }: TransformationProps) {
+  // Real intent examples as per enh6.md
+  // We ignore content.fragments and use these specific ones or a mix if passed differently, 
+  // but spec says "Replace generic text with specifics"
+  const intentExamples = [
+    "Book: The Courage to Be Disliked",
+    "Plan: Iceland in winter",
+    "Gift idea: concert tickets",
+    "Watch: True Detective",
+    "Read later: RWA tokenization",
+    "Buy: winter gloves",
+    "Try: morning yoga",
+    "Remind: call mom",
+    "Idea: new app feature",
+    "Spotify: Deep Focus playlist"
+  ];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 py-32 overflow-hidden">
-      {/* The Spark - now active, pulling */}
+      {/* The Spark - EVENT HORIZON */}
       <div className="relative">
-        {/* Central pulling force */}
+        {/* Central Core */}
         <motion.div
-          className="w-24 h-24 rounded-full bg-gradient-to-br from-[#FF6B35] to-[#9D4EDD]"
-          style={{
-            boxShadow:
-              "0 0 60px rgba(255,107,53,0.6), 0 0 120px rgba(157,78,221,0.4)",
-          }}
+          className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-white shadow-[0_0_80px_rgba(255,255,255,0.8),0_0_150px_rgba(255,107,53,0.5)] z-20 relative"
           animate={{
-            scale: [1, 1.15, 1],
-            boxShadow: [
-              "0 0 60px rgba(255,107,53,0.6), 0 0 120px rgba(157,78,221,0.4)",
-              "0 0 80px rgba(255,107,53,0.8), 0 0 160px rgba(157,78,221,0.6)",
-              "0 0 60px rgba(255,107,53,0.6), 0 0 120px rgba(157,78,221,0.4)",
-            ],
+            scale: [1, 1.2, 1],
+            opacity: [0.9, 1, 0.9]
           }}
           transition={{
-            duration: 3,
+            duration: 2,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: "easeInOut"
           }}
         />
 
-        {/* Fragments being pulled in - smaller, simpler texts */}
-        {content.fragments.slice(0, 8).map((fragment, i) => {
-          const angle = (i * 360) / 8;
-          const radius = 350;
+        {/* Incoming Thoughts (Suction Effect) */}
+        {intentExamples.map((text, i) => {
+          const angle = (i * 360) / intentExamples.length;
+          const radius = 400; // Start far out
 
           return (
             <motion.div
               key={i}
-              className="absolute top-1/2 left-1/2"
-              style={{
-                transformOrigin: "center",
-              }}
+              className="absolute top-1/2 left-1/2 z-10"
               initial={{
                 x: Math.cos((angle * Math.PI) / 180) * radius,
                 y: Math.sin((angle * Math.PI) / 180) * radius,
                 opacity: 0,
+                scale: 1
               }}
               whileInView={{
+                // Move towards center 0,0
                 x: [
                   Math.cos((angle * Math.PI) / 180) * radius,
-                  Math.cos((angle * Math.PI) / 180) * (radius * 0.3),
+                  0
                 ],
                 y: [
                   Math.sin((angle * Math.PI) / 180) * radius,
-                  Math.sin((angle * Math.PI) / 180) * (radius * 0.3),
+                  0
                 ],
-                opacity: [0.3, 0.8, 0.3],
+                opacity: [0, 1, 0], // Fade in then vanish at core
+                scale: [0.8, 1, 0]  // Shrink into singularity
               }}
-              viewport={{ once: false, amount: 0.5 }}
+              viewport={{ once: false }}
               transition={{
-                duration: 4,
-                delay: i * 0.2,
+                duration: 3 + Math.random() * 2,
+                delay: i * 0.5,
                 repeat: Infinity,
-                ease: "easeInOut",
+                ease: "easeIn", // Accelerate into core
+                repeatDelay: Math.random() * 2 // Randomize respawn
+              }}
+              style={{
+                transformOrigin: "center"
               }}
             >
               <p
-                className="text-sm text-[#E8E8F0]/60 whitespace-nowrap"
+                className="text-sm md:text-base text-white/50 whitespace-nowrap"
                 style={{
-                  filter: "blur(0.5px)",
-                  textShadow: "0 0 10px rgba(0,212,255,0.3)",
+                  textShadow: "0 0 10px rgba(255,255,255,0.3)",
                 }}
               >
-                {fragment.split(" ").slice(0, 3).join(" ")}...
+                {text}
               </p>
-
-              {/* Light trail */}
-              <motion.div
-                className="absolute top-1/2 left-0 w-32 h-px bg-gradient-to-r from-[#00D4FF]/50 to-transparent"
-                style={{
-                  transformOrigin: "left center",
-                  transform: `rotate(${angle - 180}deg)`,
-                }}
-                animate={{
-                  opacity: [0.2, 0.6, 0.2],
-                }}
-                transition={{
-                  duration: 3,
-                  delay: i * 0.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
             </motion.div>
           );
         })}
-
-        {/* Pulling force visualization - light rays */}
-        {[...Array(12)].map((_, i) => {
-          const angle = (i * 360) / 12;
-          return (
-            <motion.div
-              key={`ray-${i}`}
-              className="absolute top-1/2 left-1/2 w-px h-48 bg-gradient-to-b from-[#FF6B35]/30 to-transparent origin-top"
-              style={{
-                transform: `rotate(${angle}deg)`,
-                transformOrigin: "center top",
-              }}
-              animate={{
-                opacity: [0.1, 0.4, 0.1],
-                scaleY: [1, 1.3, 1],
-              }}
-              transition={{
-                duration: 2,
-                delay: i * 0.1,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          );
-        })}
       </div>
-
-      {/* Ambient response - void reacting */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle at 50% 50%, rgba(157,78,221,0.1) 0%, transparent 50%)",
-        }}
-        animate={{
-          opacity: [0.3, 0.6, 0.3],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
     </section>
   );
 }
