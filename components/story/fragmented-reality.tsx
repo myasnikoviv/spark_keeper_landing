@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 interface FragmentedRealityProps {
   content: {
@@ -12,50 +13,54 @@ interface FragmentedRealityProps {
 }
 
 export function FragmentedReality({ content, visualOnly = false }: FragmentedRealityProps) {
-  // Deterministic chaotic generation (18 fragments)
-  // We double the content if needed to get more density
-  const baseFragments = content.fragments.concat(content.fragments).slice(0, 18);
+  // Use state to store fragments and sparks ensures they are only generated on the client
+  // preventing hydration mismatches.
+  const [fragments, setFragments] = useState<any[]>([]);
+  const [sparks, setSparks] = useState<any[]>([]);
 
-  const fragments = baseFragments.map((text, i) => {
-    // Pseudo-random based on index
-    const r1 = ((i * 13 + 7) % 100) / 100; // 0..1
-    const r2 = ((i * 29 + 3) % 100) / 100; // 0..1
-    const r3 = ((i * 7 + 19) % 100) / 100; // 0..1
+  useEffect(() => {
+    // 1. Generate Chaotic Fragments (Client-Side)
+    // We double the content if needed to get more density
+    const baseFragments = content.fragments.concat(content.fragments).slice(0, 18);
 
-    return {
-      text,
-      // Fully chaotic spread
-      left: `${10 + (r1 * 80)}%`, // 10-90%
-      top: `${10 + (r2 * 80)}%`,  // 10-90%
-      duration: 2 + r3 * 3, // Fast flash: 2-5s
-      delay: i * 0.3,       // Staggered start
-      // Drift direction
-      driftX: (r1 - 0.5) * 50, // -25 to +25px
-      driftY: (r2 - 0.5) * 50,
-    };
-  });
+    const newFragments = baseFragments.map((text, i) => {
+      // True random for chaos (since we are in useEffect, this is safe)
+      const r1 = Math.random();
+      const r2 = Math.random();
+      const r3 = Math.random();
 
-  // Deterministic sparks generation
-  const sparks = Array.from({ length: 20 }).map((_, i) => {
-    const r1 = ((i * 47 + 11) % 100) / 100;
-    const r2 = ((i * 83 + 23) % 100) / 100;
-    const r3 = ((i * 19 + 5) % 100) / 100;
+      return {
+        id: i,
+        text,
+        left: `${10 + (r1 * 80)}%`, // 10-90% safe area
+        top: `${10 + (r2 * 80)}%`,  // 10-90%
+        duration: 2 + r3 * 3, // Fast flash: 2-5s
+        delay: Math.random() * 2, // Staggered start
+        driftX: (Math.random() - 0.5) * 50,
+        driftY: (Math.random() - 0.5) * 50,
+      };
+    });
+    setFragments(newFragments);
 
-    return {
-      left: `${r1 * 100}%`,
-      top: `${r2 * 100}%`,
-      duration: 3 + r3 * 2,
-      delay: r1 * 5
-    };
-  });
+    // 2. Generate Sparks
+    const newSparks = Array.from({ length: 20 }).map((_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: 3 + Math.random() * 2,
+      delay: Math.random() * 5
+    }));
+    setSparks(newSparks);
+
+  }, [content.fragments]); // Re-run if content changes
 
   return (
     <section className="relative min-h-[80vh] md:min-h-[100vh] overflow-hidden flex items-center justify-center px-6 py-20 md:py-32">
       {/* Extra Sparks for this section */}
       <div className="absolute inset-0 pointer-events-none">
-        {sparks.map((s, i) => (
+        {sparks.map((s) => (
           <motion.div
-            key={`spark-${i}`}
+            key={`spark-${s.id}`}
             className="absolute w-1 h-1 bg-spark-orange rounded-full"
             style={{
               left: s.left,
@@ -78,9 +83,9 @@ export function FragmentedReality({ content, visualOnly = false }: FragmentedRea
 
       {/* Background Fragments (Chaotic Flash) */}
       <div className="absolute inset-0 pointer-events-none select-none">
-        {fragments.map((f, i) => (
+        {fragments.map((f) => (
           <motion.div
-            key={i}
+            key={f.id}
             className="absolute text-xl md:text-3xl text-white/40 font-light whitespace-nowrap tracking-widest blur-[1px]"
             style={{ left: f.left, top: f.top }}
             animate={{
