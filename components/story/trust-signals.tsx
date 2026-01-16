@@ -14,7 +14,7 @@ interface TrustSignalsProps {
 export function TrustSignals({ content }: TrustSignalsProps) {
     return (
         <section className="relative z-10 w-full max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-12 border-y border-white/5 bg-[#050508]/50 backdrop-blur-sm p-8 rounded-xl relative overflow-hidden">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-12 border-y border-white/5 bg-transparent p-8 rounded-xl relative overflow-hidden">
 
                 {/* Scanning Line */}
                 <motion.div

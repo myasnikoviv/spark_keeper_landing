@@ -73,25 +73,33 @@ function ScenarioBlock({ scenario, index }: { scenario: Scenario; index: number 
                     </div>
 
                     <SparkPathWrapper />
+                    <VerticalSparkPath />
 
                     {/* 2. AI */}
-                    <div className="relative w-12 h-12 shrink-0 rounded-full border border-spark-purple/30 flex items-center justify-center bg-spark-purple/10 backdrop-blur-sm">
-                        <Sparkles className="w-5 h-5 text-spark-purple animate-pulse" />
-                        <motion.div
-                            className="absolute inset-0 rounded-full border-t border-spark-purple"
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                        />
+                    <div className="flex flex-col items-center gap-2">
+                        <span className="md:hidden text-[10px] tracking-widest uppercase text-white/30 font-bold">AI</span>
+                        <div className="relative w-12 h-12 shrink-0 rounded-full border border-spark-purple/30 flex items-center justify-center bg-spark-purple/10 backdrop-blur-sm group">
+                            <span className="hidden md:block absolute -top-6 text-[10px] tracking-widest uppercase text-white/30 font-bold">AI</span>
+                            <Sparkles className="w-5 h-5 text-spark-purple animate-pulse" />
+                            <motion.div
+                                className="absolute inset-0 rounded-full border-t border-spark-purple"
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                            />
+                        </div>
                     </div>
 
                     <SparkPathWrapper />
+                    <VerticalSparkPath />
 
                     {/* 3. Spark */}
-                    <div className="w-full md:w-[28%]">
-                        <div className="relative bg-[#1F1F2E] border border-spark-orange/50 rounded-lg p-4 flex flex-col gap-1 shadow-[0_0_15px_rgba(255,107,53,0.15)] h-full justify-center">
+                    <div className="w-full md:w-[28%] flex flex-col gap-2">
+                        <span className="md:hidden text-[10px] tracking-widest uppercase text-white/30 pl-1 font-bold">SPARK</span>
+                        <div className="relative bg-[#1F1F2E] border border-spark-orange/50 rounded-lg p-4 flex flex-col gap-1 shadow-[0_0_15px_rgba(255,107,53,0.15)] h-full justify-center group">
+                            <span className="hidden md:block absolute -top-6 left-0 text-[10px] tracking-widest uppercase text-white/30 pl-1 font-bold">SPARK</span>
                             <span className="text-[10px] text-spark-orange font-mono uppercase tracking-widest flex items-center gap-2">
                                 <span className="w-1.5 h-1.5 rounded-full bg-spark-orange" />
-                                Spark
+                                Spark Node
                             </span>
                             <p className="text-white text-sm font-medium leading-tight">
                                 {scenario.spark}
@@ -100,6 +108,7 @@ function ScenarioBlock({ scenario, index }: { scenario: Scenario; index: number 
                     </div>
 
                     <SparkPathWrapper />
+                    <VerticalSparkPath />
 
                     {/* 4. Action */}
                     <div className="w-full md:w-[28%]">
@@ -148,7 +157,7 @@ function InputVisualisation({ title, text }: { title: string, text: string }) {
                 <div className="flex-1">
                     <div className="flex gap-1 items-center h-4">
                         {[...Array(8)].map((_, i) => (
-                            <div key={i} className="w-1 bg-white/40 rounded-full" style={{ height: Math.random() * 16 + 4 }} />
+                            <div key={i} className="w-1 bg-white/40 rounded-full" style={{ height: ((i * 7) % 16) + 6 }} />
                         ))}
                     </div>
                 </div>
@@ -178,13 +187,28 @@ function ActionVisualisation({ text }: { text: string }) {
 
 
 
+
 function SparkPathWrapper() {
     return (
-        <div className="hidden md:flex w-8 items-center justify-center">
+        <div className="hidden md:flex w-8 items-center justify-center relative">
             <div className="w-full h-[1px] bg-white/10 relative overflow-hidden">
                 <motion.div
                     className="absolute top-0 left-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-spark-orange to-transparent"
                     animate={{ x: ["-100%", "200%"] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "linear", repeatDelay: 0.5 }}
+                />
+            </div>
+        </div>
+    )
+}
+
+function VerticalSparkPath() {
+    return (
+        <div className="flex md:hidden h-8 w-full items-center justify-center relative">
+            <div className="h-full w-[1px] bg-white/10 relative overflow-hidden">
+                <motion.div
+                    className="absolute left-0 right-0 top-0 h-1/2 bg-gradient-to-b from-transparent via-spark-orange to-transparent"
+                    animate={{ y: ["-100%", "200%"] }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: "linear", repeatDelay: 0.5 }}
                 />
             </div>
