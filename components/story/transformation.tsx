@@ -40,62 +40,12 @@ export function Transformation({ content }: TransformationProps) {
 
       <div className="relative w-full max-w-6xl h-[900px] z-[42]">
 
-        {/* 1. VISUAL CORE (Solar Flares & Suction System) */}
+        {/* 1. VISUAL CORE (Solar Flares & Suction System) - RAYS REMOVED */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none">
           {mounted && (
             <>
-              {/* Layer A: High-frequency "Tremor" Rays (Static but shaking) */}
-              {[...Array(48)].map((_, i) => (
-                <motion.div
-                  key={`tremor-${i}`}
-                  className="absolute top-1/2 left-1/2 origin-left"
-                  style={{
-                    height: '1px',
-                    width: '40%', // 320px radius
-                    rotate: i * (360 / 48),
-                    background: 'linear-gradient(90deg, rgba(255,107,53,0.8) 0%, transparent 100%)',
-                  }}
-                  animate={{
-                    scaleX: [0.95, 1.05, 0.95],
-                    opacity: [0.3, 0.6, 0.3],
-                  }}
-                  transition={{
-                    duration: 0.1 + Math.random() * 0.1, // Very fast jitter
-                    repeat: Infinity,
-                    repeatType: "mirror",
-                    delay: Math.random()
-                  }}
-                />
-              ))}
-
-              {/* Layer B: "Suction" Particles (Moving INWARD) */}
-              {[...Array(20)].map((_, i) => (
-                <motion.div
-                  key={`suction-${i}`}
-                  className="absolute top-1/2 left-1/2 origin-left rounded-full bg-white"
-                  style={{
-                    height: '2px',
-                    width: '40px', // Streak length
-                    rotate: Math.random() * 360,
-                  }}
-                  initial={{ x: 300, opacity: 0, scaleX: 1 }} // Start far out
-                  animate={{
-                    x: 40, // End near core (radius 30-40)
-                    opacity: [0, 0.8, 0], // Fade in then out entering core
-                    scaleX: [0.5, 2, 0.5] // Stretch as it moves fast
-                  }}
-                  transition={{
-                    duration: 1 + Math.random() * 1.5,
-                    repeat: Infinity,
-                    ease: "easeIn", // Accel towards center
-                    delay: Math.random() * 2
-                  }}
-                >
-                  <div className="w-full h-full bg-gradient-to-l from-transparent via-[#FF6B35] to-transparent" />
-                </motion.div>
-              ))}
-
-              {/* Layer C: Large Slow Pulses (Atmosphere) */}
+              {/* Rays and Lines removed per request. Only Pulse (Atmosphere) remains if desired, or just Core. */}
+              {/* Layer C: Large Slow Pulses (Atmosphere) - Conserved as part of "Sphere" aura */}
               {[...Array(3)].map((_, i) => (
                 <motion.div
                   key={`pulse-${i}`}
@@ -141,51 +91,40 @@ export function Transformation({ content }: TransformationProps) {
 
 
         {/* 3. Incoming Intent Examples (The Text) */}
-        {/* They should look like they are being sucked in too, replacing the previous simple radial motion */}
+        {/* 3. Incoming Intent Examples (The Text) */}
         {mounted && intentExamples.map((text, i) => {
           const angle = (i * 360) / intentExamples.length;
           const radius = 350;
 
           return (
             <div key={i}>
-              {/* Connection Line - subtle */}
-              <svg className="absolute top-1/2 left-1/2 w-[800px] h-[800px] pointer-events-none -translate-x-1/2 -translate-y-1/2 overflow-visible z-0">
-                <motion.line
-                  x1="400" y1="400"
-                  x2={400 + Math.cos((angle * Math.PI) / 180) * radius}
-                  y2={400 + Math.sin((angle * Math.PI) / 180) * radius}
-                  stroke="rgba(255,107,53,0.1)"
-                  strokeWidth="1"
-                  strokeDasharray="4 4"
-                />
-              </svg>
-
               <motion.div
                 className="absolute top-1/2 left-1/2 z-10"
+                style={{ transformOrigin: "center" }}
                 initial={{
                   x: Math.cos((angle * Math.PI) / 180) * radius,
                   y: Math.sin((angle * Math.PI) / 180) * radius,
                   opacity: 0,
                   scale: 1,
-                  color: "#FFFFFF"
+                  filter: "blur(0px)",
                 }}
                 whileInView={{
-                  // Move towards center 
-                  x: [Math.cos((angle * Math.PI) / 180) * radius, 0],
-                  y: [Math.sin((angle * Math.PI) / 180) * radius, 0],
-                  opacity: [0, 1, 0, 0], // Fade in, hold, fade out near core
-                  scale: [0.9, 1, 0.4],
-                  color: ["#FFFFFF", "#FFFFFF", "#FF6B35"]
+                  x: 0,
+                  y: 0,
+                  opacity: [0, 1, 1, 1, 0], // Stay white/visible for 80% of journey
+                  scale: [1, 1, 0.2], // Shrink at the end
+                  scaleX: [1, 1, 2], // Spaghettification (Stretch) as it enters
+                  filter: ["blur(0px)", "blur(0px)", "blur(4px)"], // Blur at end
+                  color: ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FF6B35"] // Turn orange only at event horizon
                 }}
                 viewport={{ once: false }}
                 transition={{
                   duration: 4 + Math.random() * 2,
                   delay: i * 0.8,
                   repeat: Infinity,
-                  ease: "easeIn",
+                  ease: [0.7, 0, 0.84, 0], // Custom "Gravity" bezier (heavy acceleration)
                   repeatDelay: Math.random() * 1
                 }}
-                style={{ transformOrigin: "center" }}
               >
                 <p className="text-sm md:text-base whitespace-nowrap font-medium" style={{ textShadow: "0 0 10px rgba(255,255,255,0.2)" }}>
                   {text}
@@ -196,6 +135,6 @@ export function Transformation({ content }: TransformationProps) {
         })}
 
       </div>
-    </section>
+    </section >
   );
 }
