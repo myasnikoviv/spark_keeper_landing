@@ -32,9 +32,12 @@ export const metadata: Metadata = {
         description: "Capture anything. AI organizes everything. Never lose what matters.",
     },
     icons: {
-        icon: '/images/spark-logo.png',
-        shortcut: '/images/spark-logo.png',
-        apple: '/images/spark-logo.png',
+        icon: [
+            { url: '/favicon.ico', sizes: 'any' },
+            { url: '/favicon-32x32.png', type: 'image/png' },
+        ],
+        shortcut: '/favicon.ico',
+        apple: '/apple-touch-icon.png',
     },
 };
 
