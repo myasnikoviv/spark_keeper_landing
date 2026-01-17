@@ -44,8 +44,7 @@ export function Transformation({ content }: TransformationProps) {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none">
           {mounted && (
             <>
-              {/* Rays and Lines removed per request. Only Pulse (Atmosphere) remains if desired, or just Core. */}
-              {/* Layer C: Large Slow Pulses (Atmosphere) - Conserved as part of "Sphere" aura */}
+              {/* Layer C: Large Slow Pulses (Atmosphere) */}
               {[...Array(3)].map((_, i) => (
                 <motion.div
                   key={`pulse-${i}`}
@@ -67,6 +66,52 @@ export function Transformation({ content }: TransformationProps) {
                   }}
                 />
               ))}
+
+              {/* NEW: SUCTION SPARKS (Threads) */}
+              {/* These are particles that look like threads being pulled into the gravity well */}
+              {[...Array(80)].map((_, i) => {
+                // Fix: Deterministic angle + jitter for uniform 360 distribution
+                const angle = (360 / 80) * i + Math.random() * 2;
+
+                // User Req: Reduce max opacity by 40%
+                const peakOpacity = 0.1 + Math.random() * 0.5;
+
+                return (
+                  <div
+                    key={`spark-wrapper-${i}`}
+                    className="absolute top-1/2 left-1/2 w-0 h-0"
+                    style={{
+                      transform: `rotate(${angle}deg)`, // ROTATE THE AXIS using a wrapper
+                    }}
+                  >
+                    <motion.div
+                      className="absolute top-0 left-0 origin-left bg-[#FF9F1C]"
+                      style={{
+                        height: '1px',
+                        width: '4px',
+                        borderRadius: '10px',
+                        boxShadow: '0 0 4px #FF9F1C'
+                      }}
+                      initial={{
+                        x: 350, // Start far out along the rotated axis
+                        opacity: 0,
+                        scaleX: 1
+                      }}
+                      animate={{
+                        x: 0, // Suck to center
+                        opacity: [0, peakOpacity, 0],
+                        scaleX: [1, 20, 0.2]
+                      }}
+                      transition={{
+                        duration: 1 + Math.random() * 2.5,
+                        repeat: Infinity,
+                        ease: [0.7, 0, 0.84, 0],
+                        delay: Math.random() * 2
+                      }}
+                    />
+                  </div>
+                );
+              })}
             </>
           )}
         </div>
@@ -91,7 +136,6 @@ export function Transformation({ content }: TransformationProps) {
 
 
         {/* 3. Incoming Intent Examples (The Text) */}
-        {/* 3. Incoming Intent Examples (The Text) */}
         {mounted && intentExamples.map((text, i) => {
           const angle = (i * 360) / intentExamples.length;
           const radius = 350;
@@ -100,29 +144,31 @@ export function Transformation({ content }: TransformationProps) {
             <div key={i}>
               <motion.div
                 className="absolute top-1/2 left-1/2 z-10"
-                style={{ transformOrigin: "center" }}
+                style={{
+                  transformOrigin: "center",
+                }}
                 initial={{
                   x: Math.cos((angle * Math.PI) / 180) * radius,
                   y: Math.sin((angle * Math.PI) / 180) * radius,
                   opacity: 0,
-                  scale: 1,
-                  filter: "blur(0px)",
+                  scale: 1, // Start at normal size
+                  filter: "blur(0px)", // Start sharp
                 }}
                 whileInView={{
                   x: 0,
                   y: 0,
-                  opacity: [0, 1, 1, 1, 0], // Stay white/visible for 80% of journey
-                  scale: [1, 1, 0.2], // Shrink at the end
-                  scaleX: [1, 1, 2], // Spaghettification (Stretch) as it enters
-                  filter: ["blur(0px)", "blur(0px)", "blur(4px)"], // Blur at end
-                  color: ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FF6B35"] // Turn orange only at event horizon
+                  opacity: [0, 1, 1, 0],
+                  scale: [1, 1, 0], // Maintain size then shrink
+                  scaleX: [1, 1, 3], // Mild stretch at end
+                  filter: ["blur(0px)", "blur(0px)", "blur(8px)"], // Stay sharp then blur
+                  color: ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FF6B35"]
                 }}
                 viewport={{ once: false }}
                 transition={{
                   duration: 4 + Math.random() * 2,
                   delay: i * 0.8,
                   repeat: Infinity,
-                  ease: [0.7, 0, 0.84, 0], // Custom "Gravity" bezier (heavy acceleration)
+                  ease: [0.7, 0, 0.84, 0], // Gravity Pull
                   repeatDelay: Math.random() * 1
                 }}
               >
