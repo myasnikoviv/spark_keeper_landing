@@ -136,6 +136,7 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 /* Luminous Text Integration */
 .text-shadow-glow {
   text-shadow: 0 0 20px rgba(157, 78, 221, 0.5), 0 0 40px rgba(157, 78, 221, 0.3);
@@ -143,4 +144,30 @@ body {
 
 .text-shadow-glow-warm {
   text-shadow: 0 0 20px rgba(255, 107, 53, 0.5), 0 0 40px rgba(255, 107, 53, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--spark-orange);
+  border-radius: 5px;
+  border: 2px solid var(--background);
+  /* Padding effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--spark-yellow);
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--spark-orange) var(--background);
 }

@@ -31,6 +31,11 @@ export const metadata: Metadata = {
         title: "Spark Keeper - Your Second Brain",
         description: "Capture anything. AI organizes everything. Never lose what matters.",
     },
+    icons: {
+        icon: '/images/spark-logo.png',
+        shortcut: '/images/spark-logo.png',
+        apple: '/images/spark-logo.png',
+    },
 };
 
 export function generateStaticParams() {
