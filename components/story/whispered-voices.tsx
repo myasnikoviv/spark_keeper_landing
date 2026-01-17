@@ -1,6 +1,5 @@
 "use client";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 interface WhisperedVoicesProps {
@@ -29,7 +28,6 @@ function ReviewCard({
   const cardRef = useRef<HTMLDivElement>(null);
 
   // Magnetic Repulsion Logic
-  // We compute the "Push" vector based on mouse proximity
   const magnetX = useTransform(mouseX, (x: number) => {
     if (!cardRef.current) return 0;
     const rect = cardRef.current.getBoundingClientRect();
@@ -39,10 +37,9 @@ function ReviewCard({
     const distanceY = mouseY.get() - centerY;
     const distance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
 
-    // Repulsion Radius: 300px
     if (distance < 300) {
-      const force = (300 - distance) / 300; // 0 to 1 strength
-      return -(distanceX * force * 0.4); // Push away (negative)
+      const force = (300 - distance) / 300;
+      return -(distanceX * force * 0.4);
     }
     return 0;
   });
@@ -63,7 +60,6 @@ function ReviewCard({
     return 0;
   });
 
-  // Smooth out the magnetic jitter
   const springConfig = { damping: 20, stiffness: 200, mass: 0.5 };
   const springX = useSpring(magnetX, springConfig);
   const springY = useSpring(magnetY, springConfig);
@@ -72,6 +68,26 @@ function ReviewCard({
   const driftX = (Math.random() - 0.5) * 40;
   const driftY = (Math.random() - 0.5) * 40;
   const duration = 6 + Math.random() * 4;
+
+  // Refined Colors: More organic/pastel Purple -> Orange
+  const starColors = [
+    "#C4B5FD", // Soft Violet (Tailwind radium-300ish)
+    "#D8B4FE", // Mauve
+    "#E879F9", // Pink-Purple
+    "#FDA4AF", // Rose
+    "#FFB74D"  // Warm Orange
+  ];
+
+  // Pre-calculate random values for each star to ensure stability
+  // and distinct drift per star
+  const starConfigs = [...Array(voice.rating || 5)].map((_, i) => ({
+    size: 5 + i * 1.5, // 5px -> 11px (Progression)
+    color: starColors[i % 5],
+    driftX: (Math.random() - 0.5) * 10,  // Small independent drift +/- 5px
+    driftY: (Math.random() - 0.5) * 10,
+    duration: 3 + Math.random() * 3,
+    delay: Math.random() * 2
+  }));
 
   return (
     <motion.div
@@ -89,7 +105,7 @@ function ReviewCard({
         alignItems: 'flex-start'
       }}
     >
-      {/* Drift Animation Wrapper */}
+      {/* Main Drift Animation Wrapper */}
       <motion.div
         animate={{
           x: [0, driftX, 0],
@@ -102,16 +118,31 @@ function ReviewCard({
           delay: Math.random() * 2
         }}
       >
-        {/* Rating */}
-        <div className="flex gap-2 mb-4 ml-1 opacity-80">
-          {[...Array(voice.rating || 5)].map((_, s) => (
+        {/* Rating - CUSTOM STAR PARTICLES */}
+        <div className="flex gap-4 mb-6 ml-1 items-center h-8">
+          {starConfigs.map((config, s) => (
             <motion.div
               key={s}
-              animate={{ y: [0, -3, 0] }}
-              transition={{ duration: 2, delay: s * 0.1, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <Sparkles className="w-4 h-4 text-spark-orange fill-spark-orange/20" />
-            </motion.div>
+              className="relative rounded-full"
+              style={{
+                width: config.size,
+                height: config.size,
+                backgroundColor: config.color,
+                boxShadow: `0 0 ${config.size * 1.5}px ${config.color}80` // Soft glow with opacity
+              }}
+              // Independent Drift per star
+              animate={{
+                x: [0, config.driftX, 0],
+                y: [0, config.driftY, 0],
+                opacity: [0.5, 0.9, 0.5] // Breathing opacity
+              }}
+              transition={{
+                duration: config.duration,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: config.delay
+              }}
+            />
           ))}
         </div>
 
@@ -138,16 +169,14 @@ function ReviewCard({
 
 export function WhisperedVoices({ content }: WhisperedVoicesProps) {
   const [isClient, setIsClient] = useState(false);
-  const mouseX = useMotionValue(-1000); // Start off-screen
+  const mouseX = useMotionValue(-1000);
   const mouseY = useMotionValue(-1000);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  // Track global mouse over the section
   const handleMouseMove = (e: React.MouseEvent) => {
-    // Use client coordinates for simplicity, or relative to container
     mouseX.set(e.clientX);
     mouseY.set(e.clientY);
   };
@@ -162,8 +191,6 @@ export function WhisperedVoices({ content }: WhisperedVoicesProps) {
       onMouseMove={handleMouseMove}
     >
       <div className="max-w-7xl mx-auto w-full relative z-10">
-
-        {/* Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-24 gap-x-12">
           {content.voices.map((voice, i) => (
             <ReviewCard
