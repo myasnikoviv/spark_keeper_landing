@@ -20,6 +20,20 @@ export default function SupportPage() {
                         <h1 className="text-4xl font-light text-white tracking-tight">
                             {t('title')}
                         </h1>
+                        <p className="text-white/60 text-lg">
+                            {t('intro')}
+                        </p>
+                    </div>
+
+                    <div className="space-y-6 text-white/80 leading-relaxed text-sm bg-white/5 p-6 rounded-xl border border-white/5">
+                        <h2 className="text-xl font-medium text-white">{t('deleteAccount.title')}</h2>
+                        <p>{t('deleteAccount.p1')}</p>
+                        <ol className="list-decimal pl-5 space-y-2 marker:text-spark-orange">
+                            <li>{t('deleteAccount.step1')}</li>
+                            <li>{t('deleteAccount.step2')}</li>
+                            <li>{t('deleteAccount.step3')}</li>
+                        </ol>
+                        <p>{t('deleteAccount.p2')}</p>
                     </div>
 
                     <form

@@ -500,12 +500,21 @@
             ],
             "supportLink": "Support",
             "copyright": "© 2026 Spark Keeper. All rights reserved."
-        },
-        "support": {
-            "title": "Support",
-            "email": "Your email:",
-            "message": "Your message:",
-            "send": "Send"
         }
+    },
+    "support": {
+        "title": "Support & Contact",
+        "intro": "Have a question? We are here to help.",
+        "deleteAccount": {
+            "title": "Account Deletion Request",
+            "p1": "If you wish to delete your Spark Keeper account and associated data, please follow these steps:",
+            "step1": "Send an email to support@sparkkeeper.com from the email address associated with your account",
+            "step2": "Include \"Account Deletion Request\" in the subject line",
+            "step3": "In the email body, confirm that you want to permanently delete your account and all associated data",
+            "p2": "You will receive a confirmation email within 48 hours. Your account and data will be permanently deleted within 30 days of confirmation."
+        },
+        "email": "Your email:",
+        "message": "Your message:",
+        "send": "Send"
     }
 }
