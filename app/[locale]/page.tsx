@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
+import Footer from '@/components/Footer';
 import { EntryMoment } from '@/components/story/entry-moment';
 import { FragmentedReality } from '@/components/story/fragmented-reality';
 import { Understanding } from '@/components/story/understanding';
@@ -172,10 +173,7 @@ export default function Home() {
             {/* BLOCK 19: FINAL CTA */}
             <WhisperedCTA content={content.footer.cta} />
 
-            {/* FOOTER (Simple Copyright) */}
-            <section className="relative pb-10 pt-10 text-center">
-                <p className="text-white/20 text-sm">{content.footer.copyright}</p>
-            </section>
+            <Footer />
         </main>
     );
 }

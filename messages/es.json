@@ -500,7 +500,14 @@
                 "Soporte",
                 "Contacto"
             ],
+            "supportLink": "Soporte",
             "copyright": "© 2026 Spark Keeper. Todos los derechos reservados."
+        },
+        "support": {
+            "title": "Soporte",
+            "email": "Tu correo:",
+            "message": "Tu mensaje:",
+            "send": "Enviar"
         }
     }
 }

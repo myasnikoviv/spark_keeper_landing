@@ -498,7 +498,14 @@
                 "Support",
                 "Contact"
             ],
+            "supportLink": "Support",
             "copyright": "© 2026 Spark Keeper. All rights reserved."
+        },
+        "support": {
+            "title": "Support",
+            "email": "Your email:",
+            "message": "Your message:",
+            "send": "Send"
         }
     }
 }
