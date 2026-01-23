@@ -511,7 +511,7 @@
         "deleteAccount": {
             "title": "Solicitud de eliminación de cuenta",
             "p1": "Si desea eliminar su cuenta de Spark Keeper y los datos asociados, siga estos pasos:",
-            "step1": "Envíe un correo electrónico a support@sparkkeeper.com desde la dirección asociada a su cuenta",
+            "step1": "Envíe un correo electrónico a master.seal@sealclass.com desde la dirección asociada a su cuenta",
             "step2": "Incluya \"Account Deletion Request\" en el asunto",
             "step3": "En el cuerpo del correo, confirme que desea eliminar permanentemente su cuenta y todos los datos asociados",
             "p2": "Recibirá un correo de confirmación dentro de las 48 horas. Su cuenta y datos se eliminarán permanentemente dentro de los 30 días posteriores a la confirmación."
